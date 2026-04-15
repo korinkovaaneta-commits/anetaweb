@@ -4,17 +4,17 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --purple-dark:  #211c41;
-  --purple-mid:   #4a3b8c;
-  --purple-main:  #843cd4;
-  --purple-light: #f0eaff;
-  --salmon:       #ffcdcc;
-  --salmon-dark:  #e8a5a3;
+  --purple-dark:  #8B1538;
+  --purple-mid:   #C2185B;
+  --purple-main:  #EC4899;
+  --purple-light: #FCE7F3;
+  --salmon:       #F8BBD0;
+  --salmon-dark:  #F48FB1;
   --white:        #ffffff;
-  --gray-100:     #f9f7ff;
-  --gray-200:     #ede9f8;
-  --gray-500:     #7a7090;
-  --gray-800:     #2d2840;
+  --gray-100:     #FFF5F7;
+  --gray-200:     #FCE7F3;
+  --gray-500:     #A0616A;
+  --gray-800:     #3D2A2E;
 
   --font-serif: 'Playfair Display', Georgia, serif;
   --font-sans:  'Inter', system-ui, sans-serif;
