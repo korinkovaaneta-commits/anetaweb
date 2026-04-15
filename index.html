@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aneta Kořínková – Blog o práci a vzdělávání</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#" class="nav__logo">Aneta Kořínková</a>
+      <ul class="nav__list" id="navList">
+        <li><a href="#uvod" class="nav__link">Úvod</a></li>
+        <li><a href="#clanky" class="nav__link">Články</a></li>
+        <li><a href="#podcast" class="nav__link">Podcast</a></li>
+        <li><a href="#omne" class="nav__link">O mně</a></li>
+        <li><a href="#kontakt" class="nav__link nav__link--cta">Kontakt</a></li>
+      </ul>
+      <button class="nav__burger" id="navBurger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="uvod">
+    <div class="container hero__inner">
+      <div class="hero__text">
+        <p class="hero__label">Blog o práci a vzdělávání</p>
+        <h1 class="hero__title">Jsem <em>Aneta<br />Kořínková</em></h1>
+        <p class="hero__subtitle">Pomůžu vám uspět na&nbsp;pracovním trhu.</p>
+        <p class="hero__desc">Pomáhám lidem najít pravou práci a&nbsp;firmám správné lidi. Snažím se stále vzdělávat a&nbsp;vybalancovat rodinu s&nbsp;prací.</p>
+        <div class="hero__actions">
+          <a href="#clanky" class="btn btn--primary">Číst články</a>
+          <a href="#podcast" class="btn btn--ghost">Poslouchat podcast</a>
+        </div>
+      </div>
+      <div class="hero__image">
+        <div class="hero__avatar">AK</div>
+      </div>
+    </div>
+    <div class="hero__wave">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f9f7ff"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ARTICLES -->
+  <section class="section section--light" id="clanky">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__tag">Články</span>
+        <h2 class="section__title">Co se děje na&nbsp;trhu práce</h2>
+        <p class="section__desc">Pravidelné články o kariéře, vzdělávání a&nbsp;pracovním trhu.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="card__category">Kariéra</div>
+          <h3 class="card__title">Když firmy čtou CV, ale nevidí člověka</h3>
+          <p class="card__excerpt">Životopis je jen papír. Co rozhoduje o tom, zda dostanete pozvání na pohovor – a jak se odlišit od stovek dalších uchazečů?</p>
+          <a href="#" class="card__link">Číst dál →</a>
+        </article>
+        <article class="card">
+          <div class="card__category">Vzdělávání</div>
+          <h3 class="card__title">Jak se učit efektivně i při plném pracovním úvazku</h3>
+          <p class="card__excerpt">Čas je vzácný. Přesto existují způsoby, jak se rozvíjet každý den – bez toho, abyste obětovali rodinu nebo volný čas.</p>
+          <a href="#" class="card__link">Číst dál →</a>
+        </article>
+        <article class="card">
+          <div class="card__category">Práce</div>
+          <h3 class="card__title">Proč je síť kontaktů důležitější než váš titul</h3>
+          <p class="card__excerpt">Networking nemusí být nepříjemný. Ukážu vám, jak budovat vztahy přirozeně a bez falešných úsměvů.</p>
+          <a href="#" class="card__link">Číst dál →</a>
+        </article>
+      </div>
+      <div class="section__cta">
+        <a href="#" class="btn btn--outline">Všechny články</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PODCAST -->
+  <section class="section section--purple" id="podcast">
+    <div class="container">
+      <div class="section__header section__header--light">
+        <span class="section__tag section__tag--light">Podcast</span>
+        <h2 class="section__title">Příběhy lidí, kteří to dokázali</h2>
+        <p class="section__desc">Rozhovory s&nbsp;hosty o kariéře, seberozvoji a&nbsp;životní rovnováze.</p>
+      </div>
+      <div class="episodes">
+        <div class="episode">
+          <div class="episode__number">66</div>
+          <div class="episode__info">
+            <p class="episode__guest">Broňa Sobotka</p>
+            <h3 class="episode__title">Angličtina je rozhodnutí, ne talent</h3>
+            <p class="episode__desc">Proč se nám angličtina nedaří? A&nbsp;jak to změnit? Broňa má jasnou odpověď – a&nbsp;taky konkrétní postup.</p>
+            <a href="#" class="episode__play">▶ Přehrát epizodu</a>
+          </div>
+        </div>
+        <div class="episode">
+          <div class="episode__number">65</div>
+          <div class="episode__info">
+            <p class="episode__guest">Jana Nováková</p>
+            <h3 class="episode__title">Jak jsem změnila obor ve 40 a nelituju</h3>
+            <p class="episode__desc">Rekvalifikace v&nbsp;polovině kariéry? Jana to zvládla a&nbsp;mluví o tom, co ji čekalo.</p>
+            <a href="#" class="episode__play">▶ Přehrát epizodu</a>
+          </div>
+        </div>
+        <div class="episode">
+          <div class="episode__number">64</div>
+          <div class="episode__info">
+            <p class="episode__guest">Tomáš Procházka</p>
+            <h3 class="episode__title">Burnout: jak ho poznat a jak z&nbsp;něj ven</h3>
+            <p class="episode__desc">Syndrom vyhoření se netýká jen manažerů. Tomáš mluví otevřeně o svém příběhu a cestě zpět.</p>
+            <a href="#" class="episode__play">▶ Přehrát epizodu</a>
+          </div>
+        </div>
+      </div>
+      <div class="section__cta">
+        <a href="#" class="btn btn--light">Všechny epizody</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="section section--salmon">
+    <div class="container">
+      <div class="newsletter">
+        <div class="newsletter__text">
+          <h2 class="newsletter__title">Zpráva o úspěchu</h2>
+          <p class="newsletter__desc">Jednou za čas vám pošlu newsletter plný tipů, inspirace a&nbsp;novinek z&nbsp;pracovního trhu. Bez spamu, bez zbytečností.</p>
+        </div>
+        <form class="newsletter__form" onsubmit="return false;">
+          <input type="email" placeholder="váš@email.cz" class="newsletter__input" />
+          <button type="submit" class="btn btn--primary">Chci odebírat</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section section--light" id="omne">
+    <div class="container about">
+      <div class="about__image">
+        <div class="about__avatar">AK</div>
+      </div>
+      <div class="about__text">
+        <span class="section__tag">O mně</span>
+        <h2 class="section__title">Aneta Kořínková</h2>
+        <p>Pomáhám lidem najít práci, která jim dává smysl – a&nbsp;firmám sestavit tým, který funguje. Pracuju jako HR konzultantka, lektorka a&nbsp;průvodkyně kariérním rozvojem.</p>
+        <p>Věřím, že každý má potenciál uspět. Někdy stačí jen trochu jiný pohled, správný impuls nebo odvaha udělat první krok. A&nbsp;právě k&nbsp;tomu jsem tady.</p>
+        <p>Mimo práci jsem máma, manželka a&nbsp;věčná studentka. Baví mě podcast, psaní a&nbsp;čas trávený s&nbsp;lidmi, kteří mi dávají energii.</p>
+        <a href="#kontakt" class="btn btn--primary">Spojit se se mnou</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section section--dark" id="kontakt">
+    <div class="container">
+      <div class="section__header section__header--light">
+        <span class="section__tag section__tag--light">Kontakt</span>
+        <h2 class="section__title">Pojďme si promluvit</h2>
+        <p class="section__desc">Máte projekt, dotaz nebo jen chuť na&nbsp;kávu? Napište mi.</p>
+      </div>
+      <form class="contact-form" onsubmit="return false;">
+        <div class="contact-form__row">
+          <input type="text" placeholder="Vaše jméno" class="contact-form__input" />
+          <input type="email" placeholder="váš@email.cz" class="contact-form__input" />
+        </div>
+        <textarea placeholder="Vaše zpráva…" class="contact-form__textarea" rows="5"></textarea>
+        <button type="submit" class="btn btn--primary">Odeslat zprávu</button>
+      </form>
+      <div class="social">
+        <a href="#" class="social__link" aria-label="Facebook">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="#" class="social__link" aria-label="LinkedIn">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="#" class="social__link" aria-label="Instagram">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="#211c41"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="#211c41" stroke-width="2" stroke-linecap="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__copy">© 2026 Aneta Kořínková. Všechna práva vyhrazena.</p>
+      <nav class="footer__nav">
+        <a href="#">Ochrana osobních údajů</a>
+        <a href="#">Cookies</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
