@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Podcast o práci – Aneta Kořínková</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .podcast-header { background: var(--purple-dark); color: var(--white); padding: 4rem 0; margin-bottom: 3rem; }
+    .podcast-header h1 { font-family: var(--font-serif); font-size: 2.5rem; line-height: 1.2; margin-bottom: 1rem; }
+    .episodes-list { display: flex; flex-direction: column; gap: 1.5rem; }
+    .episode-item { background: var(--white); border-radius: var(--radius-lg); padding: 2rem; box-shadow: var(--shadow); display: flex; gap: 2rem; align-items: flex-start; }
+    .episode-item:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); transition: var(--transition); }
+    .episode-number { font-family: var(--font-serif); font-size: 2.5rem; color: var(--purple-main); font-weight: bold; min-width: 80px; text-align: center; }
+    .episode-content { flex: 1; }
+    .episode-date { font-size: .8rem; color: var(--gray-500); margin-bottom: 0.5rem; }
+    .episode-title { font-family: var(--font-serif); font-size: 1.3rem; color: var(--purple-dark); margin-bottom: .5rem; line-height: 1.3; }
+    .episode-description { color: var(--gray-500); font-size: .95rem; margin-bottom: 1rem; }
+    .episode-link { color: var(--purple-main); font-weight: 600; transition: var(--transition); }
+    .episode-link:hover { color: var(--purple-mid); }
+    .back-link { display: inline-block; margin-bottom: 2rem; color: var(--purple-main); font-weight: 600; }
+    .back-link:hover { color: var(--purple-mid); }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="index.html" class="nav__logo">Aneta Kořínková</a>
+      <ul class="nav__list" id="navList">
+        <li><a href="index.html" class="nav__link">Úvod</a></li>
+        <li><a href="articles.html" class="nav__link">Články</a></li>
+        <li><a href="podcast.html" class="nav__link">Podcast</a></li>
+        <li><a href="index.html#omne" class="nav__link">O mně</a></li>
+        <li><a href="index.html#kontakt" class="nav__link nav__link--cta">Kontakt</a></li>
+      </ul>
+      <button class="nav__burger" id="navBurger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- PODCAST HEADER -->
+  <section class="podcast-header">
+    <div class="container">
+      <a href="index.html" class="back-link">← Zpět na úvod</a>
+      <h1>Podcast o práci</h1>
+      <p class="section__desc" style="color: rgba(255,255,255,.6); max-width: none;">Rozhovory o kariéře, vzdělávání a pracovním trhu s inspirativními hosty.</p>
+    </div>
+  </section>
+
+  <!-- EPISODES -->
+  <section class="section">
+    <div class="container">
+      <div class="episodes-list">
+        <article class="episode-item">
+          <div class="episode-number">68</div>
+          <div class="episode-content">
+            <div class="episode-date">📅 27. April 2026</div>
+            <h3 class="episode-title">Když jste úspěšní, ale uvnitř prázdní - Sandra Fridrichová</h3>
+            <p class="episode-description">Rozhovor o tom, jak úspěch na papíře nemusí znamenat spokojenost v srdci. Zkoumáme syndrom podvodníka a hledání smyslu v práci.</p>
+            <a href="podcast/article1.html" class="episode-link">Poslechnout a přečíst →</a>
+          </div>
+        </article>
+
+        <article class="episode-item">
+          <div class="episode-number">67</div>
+          <div class="episode-content">
+            <div class="episode-date">📅 27. April 2026</div>
+            <h3 class="episode-title">Co dělat, když nevíš, co chceš dělat</h3>
+            <p class="episode-description">Cítíte se v rozpakách ohledně své kariéry? Zjistěte, jak najít svou cestu, když není vůbec jasné, kam jít.</p>
+            <a href="podcast/article2.html" class="episode-link">Poslechnout a přečíst →</a>
+          </div>
+        </article>
+
+        <article class="episode-item">
+          <div class="episode-number">66</div>
+          <div class="episode-content">
+            <div class="episode-date">📅 06. March 2026</div>
+            <h3 class="episode-title">Broňa Sobotka: Angličtina je rozhodnutí, ne talent</h3>
+            <p class="episode-description">Jak se stát plynulým anglicky mluvícím bez speciálního talentu? Tipy a inspirace od lektorky angličtiny.</p>
+            <a href="podcast/article3.html" class="episode-link">Poslechnout a přečíst →</a>
+          </div>
+        </article>
+
+        <article class="episode-item">
+          <div class="episode-number">65</div>
+          <div class="episode-content">
+            <div class="episode-date">📅 05. March 2026</div>
+            <h3 class="episode-title">Benešit aneb když benefit není benefitem</h3>
+            <p class="episode-description">Zaměstnanecké benefity jsou klíčovou součástí balíčku. Ale jak poznat, která jsou skutečně přínosná?</p>
+            <a href="podcast/article4.html" class="episode-link">Poslechnout a přečíst →</a>
+          </div>
+        </article>
+
+        <article class="episode-item">
+          <div class="episode-number">64</div>
+          <div class="episode-content">
+            <div class="episode-date">📅 20. January 2026</div>
+            <h3 class="episode-title">Jak poznat, že už nejsi na své cestě, s Mirkou Pivrncovou</h3>
+            <p class="episode-description">Rozhovor o tom, jak rozpoznat, kdy je čas na změnu. Inspirace od odbornice na kariérní poradenství.</p>
+            <a href="podcast/article5.html" class="episode-link">Poslechnout a přečíst →</a>
+          </div>
+        </article>
+
+        <article class="episode-item">
+          <div class="episode-number">63</div>
+          <div class="episode-content">
+            <div class="episode-date">📅 20. January 2026</div>
+            <h3 class="episode-title">Nemusíš mít plán. A je to v pořádku.</h3>
+            <p class="episode-description">Povolení k tomu, aby jste v klidu, když nevíte, kam v životě jdete. Někdy je nejlepší strategie žít bez strategie.</p>
+            <a href="podcast/article6.html" class="episode-link">Poslechnout a přečíst →</a>
+          </div>
+        </article>
+
+        <article class="episode-item">
+          <div class="episode-number">62</div>
+          <div class="episode-content">
+            <div class="episode-date">📅 27. November 2025</div>
+            <h3 class="episode-title">Češi a práce: Co nás doopravdy motivuje - s Michaelou Rakovou</h3>
+            <p class="episode-description">Průzkum motivace českých pracovníků odhaluje zajímavé přesvědčení o tom, co nás v práci opravdu pohání.</p>
+            <a href="podcast/article7.html" class="episode-link">Poslechnout a přečíst →</a>
+          </div>
+        </article>
+
+        <article class="episode-item">
+          <div class="episode-number">61</div>
+          <div class="episode-content">
+            <div class="episode-date">📅 11. November 2025</div>
+            <h3 class="episode-title">Hledání práce jako práce na sobě</h3>
+            <p class="episode-description">Hledání nové práce není jen o CV a pohovorech. Je to cesta poznávání sebe sama a hledání vlastního místa.</p>
+            <a href="podcast/article8.html" class="episode-link">Poslechnout a přečíst →</a>
+          </div>
+        </article>
+
+        <article class="episode-item">
+          <div class="episode-number">60</div>
+          <div class="episode-content">
+            <div class="episode-date">📅 24. October 2025</div>
+            <h3 class="episode-title">Jak zůstat zaměstnatelný v době AI s Beátou Holou</h3>
+            <p class="episode-description">Umělá inteligence mění pracovní svět. Ale jak si ji podmanit a zůstat relevantní v příští dekádě?</p>
+            <a href="podcast/article9.html" class="episode-link">Poslechnout a přečíst →</a>
+          </div>
+        </article>
+
+        <article class="episode-item">
+          <div class="episode-number">59</div>
+          <div class="episode-content">
+            <div class="episode-date">📅 09. October 2025</div>
+            <h3 class="episode-title">Skrytý trh práce: Jak se dostat k pozicím, které nikde nevisí</h3>
+            <p class="episode-description">Až polovina pracovních pozic se nikdy nikde neobjeví. Jak se dostat na skrytý trh práce?</p>
+            <a href="podcast/article10.html" class="episode-link">Poslechnout a přečíst →</a>
+          </div>
+        </article>
+
+        <article class="episode-item">
+          <div class="episode-number">58</div>
+          <div class="episode-content">
+            <div class="episode-date">📅 11. September 2025</div>
+            <h3 class="episode-title">O hledání práce po padesátce s Kateřinou Musilovou</h3>
+            <p class="episode-description">Hledání práce po padesátiletí přináší své výzvy. Jak se s nimi poradit a najít si místo, kde se budeme cítit vítáni?</p>
+            <a href="podcast/article11.html" class="episode-link">Poslechnout a přečíst →</a>
+          </div>
+        </article>
+
+        <article class="episode-item">
+          <div class="episode-number">57</div>
+          <div class="episode-content">
+            <div class="episode-date">📅 19. August 2025</div>
+            <h3 class="episode-title">O stárnutí, AI a budoucnosti práce s Tomášem Ervínem Dombrovským</h3>
+            <p class="episode-description">Jak se bude měnit práce, když se stárneme? Technologie a demografie si povídají o budoucnosti zaměstnanosti.</p>
+            <a href="podcast/article12.html" class="episode-link">Poslechnout a přečíst →</a>
+          </div>
+        </article>
+
+        <article class="episode-item">
+          <div class="episode-number">56</div>
+          <div class="episode-content">
+            <div class="episode-date">📅 28. July 2025</div>
+            <h3 class="episode-title">O čokoládě a práci, která dává smysl, s Petrem Kovaříkem</h3>
+            <p class="episode-description">Jak si vytvořit práci, která vám dává radost i smysl? Příběh z čokoládovny plné vášně a záměru.</p>
+            <a href="podcast/article13.html" class="episode-link">Poslechnout a přečíst →</a>
+          </div>
+        </article>
+
+        <article class="episode-item">
+          <div class="episode-number">55</div>
+          <div class="episode-content">
+            <div class="episode-date">📅 27. June 2025</div>
+            <h3 class="episode-title">Daniel Gamrot: O produktivitě s lehkostí</h3>
+            <p class="episode-description">Produktivita nemusí být stresující. Jak si ji zorganizovat tak, aby vám přidávala energii, ne ji brala?</p>
+            <a href="podcast/article14.html" class="episode-link">Poslechnout a přečíst →</a>
+          </div>
+        </article>
+
+        <article class="episode-item">
+          <div class="episode-number">54</div>
+          <div class="episode-content">
+            <div class="episode-date">📅 05. June 2025</div>
+            <h3 class="episode-title">Klára Rücklová: Flexinovela - co čeká zaměstnance a zaměstnavatele</h3>
+            <p class="episode-description">Novela o práci na částúvazek a flexibilní práci mění pravidla hry. Jak se na ní připravit?</p>
+            <a href="podcast/article15.html" class="episode-link">Poslechnout a přečíst →</a>
+          </div>
+        </article>
+
+        <article class="episode-item">
+          <div class="episode-number">53</div>
+          <div class="episode-content">
+            <div class="episode-date">📅 26. May 2025</div>
+            <h3 class="episode-title">David Fiedler: "Vyhořel jsem v devatenácti." Příběh který zapálil prevenci.</h3>
+            <p class="episode-description">Příběh výhořeného mladého člověka, který se rozhodl udělat z tohoto zážitku poslání. Jak začala prevence syndromu vyhoření?</p>
+            <a href="podcast/article16.html" class="episode-link">Poslechnout a přečíst →</a>
+          </div>
+        </article>
+
+        <article class="episode-item">
+          <div class="episode-number">—</div>
+          <div class="episode-content">
+            <div class="episode-date">📅 14. May 2025</div>
+            <h3 class="episode-title">Generační zpověď II: Generace Z chce víc než práci. A my taky.</h3>
+            <p class="episode-description">Druhá část generační zpovědi zkoumá, co opravdu chce mladá generace od práce a od života. Překvapivě je to hodně podobné, jako chceme my.</p>
+            <a href="podcast/article17.html" class="episode-link">Poslechnout a přečíst →</a>
+          </div>
+        </article>
+
+        <article class="episode-item">
+          <div class="episode-number">—</div>
+          <div class="episode-content">
+            <div class="episode-date">📅 25. April 2025</div>
+            <h3 class="episode-title">"Hledáme srdcaře, ne dokonalá CVčka." Andrea Fenn a Dan Ryška z Bubblify</h3>
+            <p class="episode-description">Co hledají opravdoví zaměstnavatelé v kandidátech? Není to perfektní CV. Poslechněte si rozhovor se zakladateli Bubblify.</p>
+            <a href="podcast/article18.html" class="episode-link">Poslechnout a přečíst →</a>
+          </div>
+        </article>
+
+        <article class="episode-item">
+          <div class="episode-number">—</div>
+          <div class="episode-content">
+            <div class="episode-date">📅 03. April 2025</div>
+            <h3 class="episode-title">Generační zpověď I.: Mamka a babička o práci, dětech a životě</h3>
+            <p class="episode-description">Tři generace žen si povídají o práci, rodině a životě. Jak se zmenily priority? Co je stálo za to se snažit?</p>
+            <a href="podcast/article19.html" class="episode-link">Poslechnout a přečíst →</a>
+          </div>
+        </article>
+
+        <article class="episode-item">
+          <div class="episode-number">—</div>
+          <div class="episode-content">
+            <div class="episode-date">📅 20. February 2025</div>
+            <h3 class="episode-title">Osobní značka: Jak a proč ji budovat?</h3>
+            <p class="episode-description">Vaše osobní značka vás předchází. Jak ji vědomě budovat a jak vám může otevřít nové dveře v kariéře?</p>
+            <a href="podcast/article20.html" class="episode-link">Poslechnout a přečíst →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__copy">© 2026 Aneta Kořínková. Všechna práva vyhrazena.</p>
+      <nav class="footer__nav">
+        <a href="#">Ochrana osobních údajů</a>
+        <a href="#">Cookies</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
