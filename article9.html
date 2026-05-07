@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kalendář školního roku pro pracující rodiče – Aneta Kořínková</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .article-header { background: var(--purple-dark); color: var(--white); padding: 4rem 0; margin-bottom: 3rem; }
+    .article-header h1 { font-family: var(--font-serif); font-size: 2.5rem; line-height: 1.2; margin-bottom: 1rem; }
+    .article-meta { display: flex; gap: 1.5rem; font-size: .9rem; color: rgba(255,255,255,.6); margin-bottom: 1rem; }
+    .article-content { max-width: 760px; margin: 0 auto 4rem; line-height: 1.8; color: var(--gray-800); }
+    .article-content h2 { font-family: var(--font-serif); font-size: 1.6rem; color: var(--purple-dark); margin: 2rem 0 1rem; }
+    .article-content h3 { font-size: 1.1rem; color: var(--purple-dark); margin: 1.25rem 0 0.75rem; font-weight: 600; }
+    .article-content p { margin-bottom: 1.25rem; }
+    .article-content strong { color: var(--purple-dark); }
+    .back-link { display: inline-block; margin-bottom: 2rem; color: var(--purple-main); font-weight: 600; }
+    .back-link:hover { color: var(--purple-mid); }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="index.html" class="nav__logo">Aneta Kořínková</a>
+      <ul class="nav__list" id="navList">
+        <li><a href="index.html" class="nav__link">Úvod</a></li>
+        <li><a href="articles.html" class="nav__link">Články</a></li>
+        <li><a href="index.html#podcast" class="nav__link">Podcast</a></li>
+        <li><a href="index.html#omne" class="nav__link">O mně</a></li>
+        <li><a href="index.html#kontakt" class="nav__link nav__link--cta">Kontakt</a></li>
+      </ul>
+      <button class="nav__burger" id="navBurger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ARTICLE HEADER -->
+  <section class="article-header">
+    <div class="container">
+      <a href="articles.html" class="back-link">← Zpět na články</a>
+      <h1>Kalendář školního roku pro pracující rodiče</h1>
+      <div class="article-meta">
+        <span>📅 11. srpna 2025</span>
+        <span>⏱️ 9 minut čtení</span>
+        <span>🏷️ Rodina & Práce</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLE CONTENT -->
+  <article class="article-content">
+    <p><em>Konec prázdnin se blíží. Těšíš se, že ti skončí vymýšlení prázdninového programu? Myslíš, že zase nastane nějaký řád a budeš mít více klidu? Tak se pojďme podívat na to, co nás v tom školním roce vlastně čeká.</em></p>
+
+    <h2>Září – Začátek</h2>
+    <p>Září je období registrací, nových školitelů a organizačního chaosu. Nákupy školních potřeb, zdravotní kontroly, výběr aktivit na školní rok. Zvládnout to v srpnu? Skoro nemožné. Zvládnout to v září? Stejně ne, ale aspoň se všichni tváříte, že jste připraveni.</p>
+
+    <h2>Říjen – Prvních pár týdnů</h2>
+    <p>Rutina se usazuje. Dítě vás překvapí, že zapomnělo na sportovní vybavení zrovna když máte schůzi. Prvních pár týdnů je nejnáročnějších. Vždy.</p>
+
+    <h2>Listopad – Nemocnosti</h2>
+    <p>Je tu čas na chřipku, angínu a všechny ostatní nemoci, které přinesou děti ze školy. Pracujete z domova, máte malou febričkou dítě, která potřebuje pozornost. Produktivita? Není šance.</p>
+
+    <h2>Prosinec – Vánoce</h2>
+    <p>Příprava vánočních dárků, školní besídky, vystoupení... a stále pracujete. Víte, co je horší? Že víte, že to bude horší příští rok.</p>
+
+    <h2>Leden – Nový začátek (nebo ne)</h2>
+    <p>Novoroční předsevzetí zmizela. Vrátili jsme se do režimu. A teď si všichni chcete dát nový sport. Samozřejmě v nejnáročnější možné časy.</p>
+
+    <h2>Únor – Valentýn</h2>
+    <p>Škola chce, aby děti vyrobily valentýnky. Vy? Pracujete. Takže to bude v pátek v 21:00.</p>
+
+    <h2>Březen – Příprava na jaro</h2>
+    <p>Konečně je vidět sluníčko. Energie se vracejí. A hned přijdou školní výlety a další povinnosti.</p>
+
+    <h2>Duben – Jarní prázdniny</h2>
+    <p>Nebyly jsme na dovolené. Nemůžeme si vzít volno. Takže si děti vezou school materials domů a vy se modlíte, aby nemusely dělat domácí úkoly.</p>
+
+    <h2>Květen – Zkoušky a přípravy</h2>
+    <p>Přípravy na zkoušky, ústní zkoušky, prezentace. Dítě potřebuje vaši pomoc. Vy pracujete. Kompromis: pracujete v noci.</p>
+
+    <h2>Červen – Konec školního roku</h2>
+    <p>Konečně! Ale čekejte – prázdniny začínají, a teď se obáváte, jak je zaměstnat bez peníze na tábory.</p>
+
+    <h2>A potom?</h2>
+    <p>Léto. Odpočinek. Krátký čas, kdy víte, že příští září bude stejné.</p>
+
+    <h2>Pár slov na závěr</h2>
+    <p>Článek berte s nadhledem. Samozřejmě, že když moje děti vystupují, brečím. A pak zase brečím, když vidím, jak to všechno hrozně utíká. Co si ale budeme povídat – někdy je náročné to všechno skloubit dohromady.</p>
+
+    <p>Přeji vám, ať si další školní rok užijete v co největším klidu a bez nemocí. A už pomalu shánějte bavlnky! 🌸</p>
+  </article>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__copy">© 2026 Aneta Kořínková. Všechna práva vyhrazena.</p>
+      <nav class="footer__nav">
+        <a href="#">Ochrana osobních údajů</a>
+        <a href="#">Cookies</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
