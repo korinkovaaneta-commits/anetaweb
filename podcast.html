@@ -122,6 +122,7 @@
   <!-- EPISODES -->
   <section class="section">
     <div class="container">
+      <div id="debug-info" style="display: none; background: #f5f5f5; padding: 1rem; margin-bottom: 2rem; border-radius: 4px; font-size: 12px; color: #666; font-family: monospace; white-space: pre-wrap; word-break: break-all;"></div>
       <div id="episodes-list" class="episodes-list">
         <div class="loading">Načítám epizody...</div>
       </div>
@@ -144,24 +145,33 @@
     // Dynamické načítání podcast epizod z RSS feed
     async function loadPodcastEpisodes() {
       const container = document.getElementById('episodes-list');
+      const debugInfo = document.getElementById('debug-info');
       const rssUrl = 'http://feeds.libsyn.com/304163/podcastopraci';
+      const logs = [];
+
+      function log(msg) {
+        console.log(msg);
+        logs.push(msg);
+        debugInfo.textContent = logs.join('\n');
+        debugInfo.style.display = 'block';
+      }
 
       try {
-        console.log('1. Začínam načítat RSS feed...');
+        log('1. Začínam načítat RSS feed...');
 
         // Použij CORS proxy - cors.bridged.cc je rychlejší
         const proxyUrl = `https://cors.bridged.cc/?url=${encodeURIComponent(rssUrl)}`;
-        console.log('2. Proxy URL:', proxyUrl);
+        log('2. Proxy URL: ' + proxyUrl);
 
         const response = await fetch(proxyUrl);
-        console.log('3. Response status:', response.status);
+        log('3. Response status: ' + response.status);
 
         if (!response.ok) {
           throw new Error(`HTTP ${response.status}: ${response.statusText}`);
         }
 
         const data = await response.text();
-        console.log('4. Data načtena, velikost:', data.length, 'bytes');
+        log('4. Data načtena, velikost: ' + data.length + ' bytes');
 
         if (!data || data.length < 100) {
           throw new Error('RSS feed je příliš malý nebo prázdný');
@@ -175,16 +185,16 @@
         // Parse XML
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(data, 'text/xml');
-        console.log('5. XML parsován');
+        log('5. XML parsován');
 
         const parseErrors = xmlDoc.getElementsByTagName('parsererror');
         if (parseErrors.length > 0) {
-          console.error('XML Parse Error:', parseErrors[0].textContent);
+          log('XML Parse Error: ' + parseErrors[0].textContent);
           throw new Error('Chyba při parsování XML');
         }
 
         const items = xmlDoc.getElementsByTagName('item');
-        console.log('6. Nalezeno epizod:', items.length);
+        log('6. Nalezeno epizod: ' + items.length);
 
         if (items.length === 0) {
           container.innerHTML = '<div class="error">Žádné epizody nenalezeny v RSS</div>';
@@ -236,14 +246,14 @@
           `;
         }
 
-        console.log('7. HTML vygenerován, zobrazuji...');
+        log('7. HTML vygenerován, zobrazuji...');
+        debugInfo.style.display = 'none';
         container.innerHTML = episodesHtml;
-        console.log('✓ Epizody úspěšně načteny!');
+        log('✓ Epizody úspěšně načteny!');
 
       } catch (error) {
-        console.error('❌ Chyba:', error.message);
-        console.error('Stack:', error.stack);
-        container.innerHTML = `<div class="error">Chyba: ${error.message}</div>`;
+        log('❌ CHYBA: ' + error.message);
+        container.innerHTML = `<div class="error"><strong>Chyba:</strong> ${error.message}</div>`;
       }
     }
 
