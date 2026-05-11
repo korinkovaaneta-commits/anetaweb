@@ -68,44 +68,27 @@
       background: #1C3F6E;
     }
 
-    .episode-full-text {
-      margin-top: 1.5rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid #F0F0F0;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-    }
-
-    .episode-full-text.show {
-      max-height: 1000px;
-    }
-
-    .episode-full-text p {
-      font-size: 14px;
-      color: #555555;
-      line-height: 1.7;
-      margin-bottom: 1rem;
-    }
-
     .episode-read-more {
-      display: inline-block;
-      padding: 0.5rem 1rem;
-      background: transparent;
       color: #1C3F6E;
-      border: 1px solid #1C3F6E;
-      border-radius: 4px;
-      font-size: 13px;
-      font-weight: 500;
-      text-decoration: none;
       cursor: pointer;
-      transition: all 0.25s ease;
-      margin-left: 0.5rem;
+      font-weight: 500;
+      background: none;
+      border: none;
+      padding: 0;
+      font-size: 14px;
+      text-decoration: none;
     }
 
     .episode-read-more:hover {
-      background: #1C3F6E;
-      color: #FFFFFF;
+      text-decoration: underline;
+    }
+
+    .episode-full-text {
+      display: none;
+    }
+
+    .episode-full-text.show {
+      display: inline;
     }
 
     .back-link { display: inline-block; margin-bottom: 2rem; color: #FFFFFF; font-weight: 400; font-size: 14px; opacity: 0.8; text-decoration: underline; }
@@ -282,6 +265,7 @@
 
           const shortDescription = cleanDescription.substring(0, 250).trim();
           const hasMore = cleanDescription.length > 250;
+          const restDescription = hasMore ? cleanDescription.substring(250).trim() : '';
 
           episodesHtml += `
             <div class="episode-card">
@@ -289,16 +273,8 @@
               <div class="episode-content">
                 <div class="episode-date">📅 ${formattedDate}</div>
                 <h3 class="episode-title">${title}</h3>
-                <p class="episode-description">${shortDescription}${hasMore ? '...' : ''}</p>
-                <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 1.5rem;">
-                  <a href="${link}" target="_blank" rel="noopener noreferrer" class="episode-link">▶ Poslechnout</a>
-                  ${hasMore ? `<button class="episode-read-more" onclick="toggleEpisodeText('${episodeId}')">Číst dále</button>` : ''}
-                </div>
-                ${hasMore ? `
-                  <div id="${episodeId}" class="episode-full-text">
-                    <p>${cleanDescription}</p>
-                  </div>
-                ` : ''}
+                <p class="episode-description">${shortDescription}${hasMore ? ' <button class="episode-read-more" onclick="toggleEpisodeText(\'' + episodeId + '\')">...více</button><span id="' + episodeId + '" class="episode-full-text"> ' + restDescription + '</span>' : ''}</p>
+                <a href="${link}" target="_blank" rel="noopener noreferrer" class="episode-link">▶ Poslechnout</a>
               </div>
             </div>
           `;

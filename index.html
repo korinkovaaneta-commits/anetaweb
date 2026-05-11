@@ -96,44 +96,27 @@
       background: #1C3F6E;
     }
 
-    .episode__full-text {
-      margin-top: 1rem;
-      padding-top: 1rem;
-      border-top: 1px solid #F0F0F0;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-    }
-
-    .episode__full-text.show {
-      max-height: 500px;
-    }
-
-    .episode__full-text p {
-      font-size: 13px;
-      color: #555555;
-      line-height: 1.6;
-      margin-bottom: 0.75rem;
-    }
-
     .episode__read-more {
-      display: inline-block;
-      padding: 0.5rem 1rem;
-      background: transparent;
       color: #1C3F6E;
-      border: 1px solid #1C3F6E;
-      border-radius: 4px;
-      font-size: 13px;
-      font-weight: 500;
-      text-decoration: none;
       cursor: pointer;
-      transition: all 0.25s ease;
-      margin-left: 0.5rem;
+      font-weight: 500;
+      background: none;
+      border: none;
+      padding: 0;
+      font-size: 13px;
+      text-decoration: none;
     }
 
     .episode__read-more:hover {
-      background: #1C3F6E;
-      color: #FFFFFF;
+      text-decoration: underline;
+    }
+
+    .episode__full-text {
+      display: none;
+    }
+
+    .episode__full-text.show {
+      display: inline;
     }
 
     @media (max-width: 768px) {
@@ -377,22 +360,15 @@
 
           const shortDescription = cleanDescription.substring(0, 150).trim();
           const hasMore = cleanDescription.length > 150;
+          const restDescription = hasMore ? cleanDescription.substring(150).trim() : '';
 
           episodesHtml += `
             <div class="episode">
               ${imageUrl ? `<div class="episode__image"><img src="${imageUrl}" alt="${title}" loading="lazy"></div>` : ''}
               <div class="episode__info">
                 <h3 class="episode__title">${title}</h3>
-                <p class="episode__desc">${shortDescription}${hasMore ? '...' : ''}</p>
-                <div style="display: flex; gap: 0.5rem; align-items: center;">
-                  <a href="${link}" target="_blank" rel="noopener noreferrer" class="episode__play">▶ Poslechnout</a>
-                  ${hasMore ? `<button class="episode__read-more" onclick="toggleEpisodeText('${episodeId}')">Číst dále</button>` : ''}
-                </div>
-                ${hasMore ? `
-                  <div id="${episodeId}" class="episode__full-text">
-                    <p>${cleanDescription}</p>
-                  </div>
-                ` : ''}
+                <p class="episode__desc">${shortDescription}${hasMore ? ' <button class="episode__read-more" onclick="toggleEpisodeText(\'' + episodeId + '\')">...více</button><span id="' + episodeId + '" class="episode__full-text"> ' + restDescription + '</span>' : ''}</p>
+                <a href="${link}" target="_blank" rel="noopener noreferrer" class="episode__play">▶ Poslechnout</a>
               </div>
             </div>
           `;
