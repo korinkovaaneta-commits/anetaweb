@@ -168,8 +168,12 @@
     // Rozbalit/sbalit text epizody
     function toggleEpisodeText(elementId) {
       const element = document.getElementById(elementId);
+      const button = document.querySelector(`[onclick="toggleEpisodeText('${elementId}')"]`);
       if (element) {
         element.classList.toggle('show');
+        if (button) {
+          button.style.display = button.style.display === 'none' ? 'inline' : 'none';
+        }
       }
     }
 
