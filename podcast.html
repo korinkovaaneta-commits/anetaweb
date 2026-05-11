@@ -147,26 +147,47 @@
       const rssUrl = 'http://feeds.libsyn.com/304163/podcastopraci';
 
       try {
+        console.log('1. Začínam načítat RSS feed...');
+
         // Použij CORS proxy - cors.bridged.cc je rychlejší
-        const response = await fetch(`https://cors.bridged.cc/?url=${encodeURIComponent(rssUrl)}`);
+        const proxyUrl = `https://cors.bridged.cc/?url=${encodeURIComponent(rssUrl)}`;
+        console.log('2. Proxy URL:', proxyUrl);
+
+        const response = await fetch(proxyUrl);
+        console.log('3. Response status:', response.status);
+
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+
         const data = await response.text();
+        console.log('4. Data načtena, velikost:', data.length, 'bytes');
 
         if (!data || data.length < 100) {
-          throw new Error('Nelze načíst RSS feed');
+          throw new Error('RSS feed je příliš malý nebo prázdný');
+        }
+
+        // Zkontroluj, jestli je to HTML (chyba) nebo XML
+        if (data.includes('<html') || data.includes('<!DOCTYPE html')) {
+          throw new Error('Proxy vrátil HTML namísto RSS (404 nebo chyba serveru)');
         }
 
         // Parse XML
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(data, 'text/xml');
+        console.log('5. XML parsován');
 
-        if (xmlDoc.getElementsByTagName('parsererror').length > 0) {
+        const parseErrors = xmlDoc.getElementsByTagName('parsererror');
+        if (parseErrors.length > 0) {
+          console.error('XML Parse Error:', parseErrors[0].textContent);
           throw new Error('Chyba při parsování XML');
         }
 
         const items = xmlDoc.getElementsByTagName('item');
+        console.log('6. Nalezeno epizod:', items.length);
 
         if (items.length === 0) {
-          container.innerHTML = '<div class="error">Žádné epizody nenalezeny</div>';
+          container.innerHTML = '<div class="error">Žádné epizody nenalezeny v RSS</div>';
           return;
         }
 
@@ -215,11 +236,14 @@
           `;
         }
 
+        console.log('7. HTML vygenerován, zobrazuji...');
         container.innerHTML = episodesHtml;
+        console.log('✓ Epizody úspěšně načteny!');
 
       } catch (error) {
-        console.error('Chyba při načítání epizod:', error);
-        container.innerHTML = `<div class="error">Nelze načíst epizody. Zkuste znovu později.</div>`;
+        console.error('❌ Chyba:', error.message);
+        console.error('Stack:', error.stack);
+        container.innerHTML = `<div class="error">Chyba: ${error.message}</div>`;
       }
     }
 
