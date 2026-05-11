@@ -158,12 +158,9 @@
 
       try {
         log('1. Začínam načítat RSS feed...');
+        log('2. RSS URL: ' + rssUrl);
 
-        // Použij CORS proxy - cors.bridged.cc je rychlejší
-        const proxyUrl = `https://cors.bridged.cc/?url=${encodeURIComponent(rssUrl)}`;
-        log('2. Proxy URL: ' + proxyUrl);
-
-        const response = await fetch(proxyUrl);
+        const response = await fetch(rssUrl);
         log('3. Response status: ' + response.status);
 
         if (!response.ok) {
