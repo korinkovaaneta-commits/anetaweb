@@ -147,17 +147,17 @@
       const rssUrl = 'http://feeds.libsyn.com/304163/podcastopraci';
 
       try {
-        // Použij CORS proxy
-        const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(rssUrl)}`);
-        const data = await response.json();
+        // Použij CORS proxy - cors.bridged.cc je rychlejší
+        const response = await fetch(`https://cors.bridged.cc/?url=${encodeURIComponent(rssUrl)}`);
+        const data = await response.text();
 
-        if (!data.contents) {
+        if (!data || data.length < 100) {
           throw new Error('Nelze načíst RSS feed');
         }
 
         // Parse XML
         const parser = new DOMParser();
-        const xmlDoc = parser.parseFromString(data.contents, 'text/xml');
+        const xmlDoc = parser.parseFromString(data, 'text/xml');
 
         if (xmlDoc.getElementsByTagName('parsererror').length > 0) {
           throw new Error('Chyba při parsování XML');
