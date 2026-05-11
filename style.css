@@ -4,25 +4,32 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --purple-dark:  #3D2040;
-  --purple-mid:   #5C3D5E;
-  --purple-main:  #6B4270;
-  --purple-light: #EDE0EE;
+  --navy-dark:    #0D2E4D;
+  --navy-main:    #1C4E80;
+  --navy-light:   #EFF4FB;
+  --gold:         #C9A96E;
+  --gold-dark:    #B8956E;
+  --white:        #FFFFFF;
+  --gray-100:     #EFF4FB;
+  --gray-200:     #E8EEF8;
+  --gray-500:     #888888;
+  --gray-800:     #333333;
+
+  /* Legacy color names for compatibility */
+  --purple-dark:  #0D2E4D;
+  --purple-mid:   #1C4E80;
+  --purple-main:  #1C4E80;
+  --purple-light: #EFF4FB;
   --salmon:       #C9A96E;
   --salmon-dark:  #B8956E;
-  --white:        #F2EDE7;
-  --gray-100:     #F2EDE7;
-  --gray-200:     #EDE5DA;
-  --gray-500:     #9A8F85;
-  --gray-800:     #3D2040;
 
   --font-serif: 'Playfair Display', Georgia, serif;
   --font-sans:  'Inter', system-ui, sans-serif;
 
   --radius:  12px;
   --radius-lg: 20px;
-  --shadow:  0 4px 24px rgba(33,28,65,.10);
-  --shadow-lg: 0 12px 48px rgba(33,28,65,.16);
+  --shadow:  0 4px 24px rgba(13, 46, 77, 0.10);
+  --shadow-lg: 0 12px 48px rgba(13, 46, 77, 0.16);
 
   --transition: .25s ease;
 }
