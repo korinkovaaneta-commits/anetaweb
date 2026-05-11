@@ -10,19 +10,85 @@
   <link rel="stylesheet" href="style.css" />
   <style>
     .podcast-header { background: #0A0A0A; color: #FFFFFF; padding: 4rem 0; margin-bottom: 3rem; }
-    .podcast-header h1 { font-family: var(--font-serif); font-size: 2.5rem; line-height: 1.2; margin-bottom: 1rem; }
-    .episodes-list { display: flex; flex-direction: column; gap: 1.5rem; }
-    .episode-item { background: #FFFFFF; border-radius: var(--radius-lg); padding: 2rem; box-shadow: var(--shadow); display: flex; gap: 2rem; align-items: flex-start; }
-    .episode-item:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); transition: var(--transition); }
-    .episode-number { font-family: var(--font-serif); font-size: 2.5rem; color: #1C3F6E; font-weight: bold; min-width: 80px; text-align: center; }
-    .episode-content { flex: 1; }
-    .episode-date { font-size: .8rem; color: #888888; margin-bottom: 0.5rem; }
-    .episode-title { font-family: var(--font-serif); font-size: 1.3rem; color: #0A0A0A; margin-bottom: .5rem; line-height: 1.3; }
-    .episode-description { color: #888888; font-size: .95rem; margin-bottom: 1rem; }
-    .episode-link { color: #1C3F6E; font-weight: 600; transition: var(--transition); }
-    .episode-link:hover { color: #1C3F6E; }
-    .back-link { display: inline-block; margin-bottom: 2rem; color: #1C3F6E; font-weight: 600; }
-    .back-link:hover { color: #1C3F6E; }
+    .podcast-header h1 { font-size: 2.5rem; line-height: 1.2; margin-bottom: 1rem; font-weight: 500; }
+    .podcast-description { color: rgba(255,255,255,.7); margin-top: 1rem; }
+
+    .episodes-list { display: flex; flex-direction: column; gap: 2rem; }
+
+    .episode-card {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 2rem;
+      align-items: start;
+      padding: 2rem;
+      background: #FFFFFF;
+      border: 1px solid #F0F0F0;
+      border-radius: 4px;
+      transition: all 0.25s ease;
+    }
+
+    .episode-card:hover {
+      border-color: #1C3F6E;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .episode-image {
+      width: 220px;
+      height: 220px;
+      border-radius: 4px;
+      overflow: hidden;
+      background: #F8F8F8;
+    }
+
+    .episode-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .episode-content { }
+
+    .episode-date { font-size: 13px; color: #888888; margin-bottom: 0.75rem; }
+    .episode-title { font-size: 1.2rem; font-weight: 500; color: #0A0A0A; margin-bottom: 0.75rem; line-height: 1.3; }
+    .episode-description { color: #555555; font-size: 14px; line-height: 1.7; margin-bottom: 1.5rem; }
+
+    .episode-link {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: #0A0A0A;
+      color: #FFFFFF;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    .episode-link:hover {
+      background: #1C3F6E;
+    }
+
+    .back-link { display: inline-block; margin-bottom: 2rem; color: #FFFFFF; font-weight: 400; font-size: 14px; opacity: 0.8; text-decoration: underline; }
+    .back-link:hover { opacity: 1; }
+
+    .loading { text-align: center; padding: 3rem 0; color: #888888; }
+    .error { text-align: center; padding: 3rem 0; color: #C0365A; font-weight: 500; }
+
+    @media (max-width: 768px) {
+      .episode-card {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .episode-image {
+        width: 100%;
+        height: auto;
+      }
+
+      .podcast-header h1 {
+        font-size: 1.75rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -49,213 +115,15 @@
     <div class="container">
       <a href="index.html" class="back-link">← Zpět na úvod</a>
       <h1>Podcast o práci</h1>
-      <p class="section__desc" style="color: rgba(255,255,255,.6); max-width: none;">Rozhovory o kariéře, vzdělávání a pracovním trhu s inspirativními hosty.</p>
+      <p class="section__desc podcast-description">Rozhovory i solo epizody o práci, kariéře a životě. Protože jedno bez druhého stejně nejde.</p>
     </div>
   </section>
 
   <!-- EPISODES -->
   <section class="section">
     <div class="container">
-      <div class="episodes-list">
-        <article class="episode-item">
-          <div class="episode-number">68</div>
-          <div class="episode-content">
-            <div class="episode-date">📅 27. April 2026</div>
-            <h3 class="episode-title">Když jste úspěšní, ale uvnitř prázdní - Sandra Fridrichová</h3>
-            <p class="episode-description">Rozhovor o tom, jak úspěch na papíře nemusí znamenat spokojenost v srdci. Zkoumáme syndrom podvodníka a hledání smyslu v práci.</p>
-            <a href="podcast/article1.html" class="episode-link">Poslechnout a přečíst →</a>
-          </div>
-        </article>
-
-        <article class="episode-item">
-          <div class="episode-number">67</div>
-          <div class="episode-content">
-            <div class="episode-date">📅 27. April 2026</div>
-            <h3 class="episode-title">Co dělat, když nevíš, co chceš dělat</h3>
-            <p class="episode-description">Cítíte se v rozpakách ohledně své kariéry? Zjistěte, jak najít svou cestu, když není vůbec jasné, kam jít.</p>
-            <a href="podcast/article2.html" class="episode-link">Poslechnout a přečíst →</a>
-          </div>
-        </article>
-
-        <article class="episode-item">
-          <div class="episode-number">66</div>
-          <div class="episode-content">
-            <div class="episode-date">📅 06. March 2026</div>
-            <h3 class="episode-title">Broňa Sobotka: Angličtina je rozhodnutí, ne talent</h3>
-            <p class="episode-description">Jak se stát plynulým anglicky mluvícím bez speciálního talentu? Tipy a inspirace od lektorky angličtiny.</p>
-            <a href="podcast/article3.html" class="episode-link">Poslechnout a přečíst →</a>
-          </div>
-        </article>
-
-        <article class="episode-item">
-          <div class="episode-number">65</div>
-          <div class="episode-content">
-            <div class="episode-date">📅 05. March 2026</div>
-            <h3 class="episode-title">Benešit aneb když benefit není benefitem</h3>
-            <p class="episode-description">Zaměstnanecké benefity jsou klíčovou součástí balíčku. Ale jak poznat, která jsou skutečně přínosná?</p>
-            <a href="podcast/article4.html" class="episode-link">Poslechnout a přečíst →</a>
-          </div>
-        </article>
-
-        <article class="episode-item">
-          <div class="episode-number">64</div>
-          <div class="episode-content">
-            <div class="episode-date">📅 20. January 2026</div>
-            <h3 class="episode-title">Jak poznat, že už nejsi na své cestě, s Mirkou Pivrncovou</h3>
-            <p class="episode-description">Rozhovor o tom, jak rozpoznat, kdy je čas na změnu. Inspirace od odbornice na kariérní poradenství.</p>
-            <a href="podcast/article5.html" class="episode-link">Poslechnout a přečíst →</a>
-          </div>
-        </article>
-
-        <article class="episode-item">
-          <div class="episode-number">63</div>
-          <div class="episode-content">
-            <div class="episode-date">📅 20. January 2026</div>
-            <h3 class="episode-title">Nemusíš mít plán. A je to v pořádku.</h3>
-            <p class="episode-description">Povolení k tomu, aby jste v klidu, když nevíte, kam v životě jdete. Někdy je nejlepší strategie žít bez strategie.</p>
-            <a href="podcast/article6.html" class="episode-link">Poslechnout a přečíst →</a>
-          </div>
-        </article>
-
-        <article class="episode-item">
-          <div class="episode-number">62</div>
-          <div class="episode-content">
-            <div class="episode-date">📅 27. November 2025</div>
-            <h3 class="episode-title">Češi a práce: Co nás doopravdy motivuje - s Michaelou Rakovou</h3>
-            <p class="episode-description">Průzkum motivace českých pracovníků odhaluje zajímavé přesvědčení o tom, co nás v práci opravdu pohání.</p>
-            <a href="podcast/article7.html" class="episode-link">Poslechnout a přečíst →</a>
-          </div>
-        </article>
-
-        <article class="episode-item">
-          <div class="episode-number">61</div>
-          <div class="episode-content">
-            <div class="episode-date">📅 11. November 2025</div>
-            <h3 class="episode-title">Hledání práce jako práce na sobě</h3>
-            <p class="episode-description">Hledání nové práce není jen o CV a pohovorech. Je to cesta poznávání sebe sama a hledání vlastního místa.</p>
-            <a href="podcast/article8.html" class="episode-link">Poslechnout a přečíst →</a>
-          </div>
-        </article>
-
-        <article class="episode-item">
-          <div class="episode-number">60</div>
-          <div class="episode-content">
-            <div class="episode-date">📅 24. October 2025</div>
-            <h3 class="episode-title">Jak zůstat zaměstnatelný v době AI s Beátou Holou</h3>
-            <p class="episode-description">Umělá inteligence mění pracovní svět. Ale jak si ji podmanit a zůstat relevantní v příští dekádě?</p>
-            <a href="podcast/article9.html" class="episode-link">Poslechnout a přečíst →</a>
-          </div>
-        </article>
-
-        <article class="episode-item">
-          <div class="episode-number">59</div>
-          <div class="episode-content">
-            <div class="episode-date">📅 09. October 2025</div>
-            <h3 class="episode-title">Skrytý trh práce: Jak se dostat k pozicím, které nikde nevisí</h3>
-            <p class="episode-description">Až polovina pracovních pozic se nikdy nikde neobjeví. Jak se dostat na skrytý trh práce?</p>
-            <a href="podcast/article10.html" class="episode-link">Poslechnout a přečíst →</a>
-          </div>
-        </article>
-
-        <article class="episode-item">
-          <div class="episode-number">58</div>
-          <div class="episode-content">
-            <div class="episode-date">📅 11. September 2025</div>
-            <h3 class="episode-title">O hledání práce po padesátce s Kateřinou Musilovou</h3>
-            <p class="episode-description">Hledání práce po padesátiletí přináší své výzvy. Jak se s nimi poradit a najít si místo, kde se budeme cítit vítáni?</p>
-            <a href="podcast/article11.html" class="episode-link">Poslechnout a přečíst →</a>
-          </div>
-        </article>
-
-        <article class="episode-item">
-          <div class="episode-number">57</div>
-          <div class="episode-content">
-            <div class="episode-date">📅 19. August 2025</div>
-            <h3 class="episode-title">O stárnutí, AI a budoucnosti práce s Tomášem Ervínem Dombrovským</h3>
-            <p class="episode-description">Jak se bude měnit práce, když se stárneme? Technologie a demografie si povídají o budoucnosti zaměstnanosti.</p>
-            <a href="podcast/article12.html" class="episode-link">Poslechnout a přečíst →</a>
-          </div>
-        </article>
-
-        <article class="episode-item">
-          <div class="episode-number">56</div>
-          <div class="episode-content">
-            <div class="episode-date">📅 28. July 2025</div>
-            <h3 class="episode-title">O čokoládě a práci, která dává smysl, s Petrem Kovaříkem</h3>
-            <p class="episode-description">Jak si vytvořit práci, která vám dává radost i smysl? Příběh z čokoládovny plné vášně a záměru.</p>
-            <a href="podcast/article13.html" class="episode-link">Poslechnout a přečíst →</a>
-          </div>
-        </article>
-
-        <article class="episode-item">
-          <div class="episode-number">55</div>
-          <div class="episode-content">
-            <div class="episode-date">📅 27. June 2025</div>
-            <h3 class="episode-title">Daniel Gamrot: O produktivitě s lehkostí</h3>
-            <p class="episode-description">Produktivita nemusí být stresující. Jak si ji zorganizovat tak, aby vám přidávala energii, ne ji brala?</p>
-            <a href="podcast/article14.html" class="episode-link">Poslechnout a přečíst →</a>
-          </div>
-        </article>
-
-        <article class="episode-item">
-          <div class="episode-number">54</div>
-          <div class="episode-content">
-            <div class="episode-date">📅 05. June 2025</div>
-            <h3 class="episode-title">Klára Rücklová: Flexinovela - co čeká zaměstnance a zaměstnavatele</h3>
-            <p class="episode-description">Novela o práci na částúvazek a flexibilní práci mění pravidla hry. Jak se na ní připravit?</p>
-            <a href="podcast/article15.html" class="episode-link">Poslechnout a přečíst →</a>
-          </div>
-        </article>
-
-        <article class="episode-item">
-          <div class="episode-number">53</div>
-          <div class="episode-content">
-            <div class="episode-date">📅 26. May 2025</div>
-            <h3 class="episode-title">David Fiedler: "Vyhořel jsem v devatenácti." Příběh který zapálil prevenci.</h3>
-            <p class="episode-description">Příběh výhořeného mladého člověka, který se rozhodl udělat z tohoto zážitku poslání. Jak začala prevence syndromu vyhoření?</p>
-            <a href="podcast/article16.html" class="episode-link">Poslechnout a přečíst →</a>
-          </div>
-        </article>
-
-        <article class="episode-item">
-          <div class="episode-number">—</div>
-          <div class="episode-content">
-            <div class="episode-date">📅 14. May 2025</div>
-            <h3 class="episode-title">Generační zpověď II: Generace Z chce víc než práci. A my taky.</h3>
-            <p class="episode-description">Druhá část generační zpovědi zkoumá, co opravdu chce mladá generace od práce a od života. Překvapivě je to hodně podobné, jako chceme my.</p>
-            <a href="podcast/article17.html" class="episode-link">Poslechnout a přečíst →</a>
-          </div>
-        </article>
-
-        <article class="episode-item">
-          <div class="episode-number">—</div>
-          <div class="episode-content">
-            <div class="episode-date">📅 25. April 2025</div>
-            <h3 class="episode-title">"Hledáme srdcaře, ne dokonalá CVčka." Andrea Fenn a Dan Ryška z Bubblify</h3>
-            <p class="episode-description">Co hledají opravdoví zaměstnavatelé v kandidátech? Není to perfektní CV. Poslechněte si rozhovor se zakladateli Bubblify.</p>
-            <a href="podcast/article18.html" class="episode-link">Poslechnout a přečíst →</a>
-          </div>
-        </article>
-
-        <article class="episode-item">
-          <div class="episode-number">—</div>
-          <div class="episode-content">
-            <div class="episode-date">📅 03. April 2025</div>
-            <h3 class="episode-title">Generační zpověď I.: Mamka a babička o práci, dětech a životě</h3>
-            <p class="episode-description">Tři generace žen si povídají o práci, rodině a životě. Jak se zmenily priority? Co je stálo za to se snažit?</p>
-            <a href="podcast/article19.html" class="episode-link">Poslechnout a přečíst →</a>
-          </div>
-        </article>
-
-        <article class="episode-item">
-          <div class="episode-number">—</div>
-          <div class="episode-content">
-            <div class="episode-date">📅 20. February 2025</div>
-            <h3 class="episode-title">Osobní značka: Jak a proč ji budovat?</h3>
-            <p class="episode-description">Vaše osobní značka vás předchází. Jak ji vědomě budovat a jak vám může otevřít nové dveře v kariéře?</p>
-            <a href="podcast/article20.html" class="episode-link">Poslechnout a přečíst →</a>
-          </div>
-        </article>
+      <div id="episodes-list" class="episodes-list">
+        <div class="loading">Načítám epizody...</div>
       </div>
     </div>
   </section>
@@ -272,5 +140,91 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    // Dynamické načítání podcast epizod z RSS feed
+    async function loadPodcastEpisodes() {
+      const container = document.getElementById('episodes-list');
+      const rssUrl = 'http://feeds.libsyn.com/304163/podcastopraci';
+
+      try {
+        // Použij CORS proxy
+        const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(rssUrl)}`);
+        const data = await response.json();
+
+        if (!data.contents) {
+          throw new Error('Nelze načíst RSS feed');
+        }
+
+        // Parse XML
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(data.contents, 'text/xml');
+
+        if (xmlDoc.getElementsByTagName('parsererror').length > 0) {
+          throw new Error('Chyba při parsování XML');
+        }
+
+        const items = xmlDoc.getElementsByTagName('item');
+
+        if (items.length === 0) {
+          container.innerHTML = '<div class="error">Žádné epizody nenalezeny</div>';
+          return;
+        }
+
+        let episodesHtml = '';
+
+        for (let i = 0; i < items.length; i++) {
+          const item = items[i];
+
+          const title = item.getElementsByTagName('title')[0]?.textContent || 'Bez názvu';
+          const description = item.getElementsByTagName('description')[0]?.textContent || '';
+          const pubDate = item.getElementsByTagName('pubDate')[0]?.textContent || '';
+          const link = item.getElementsByTagName('link')[0]?.textContent || '#';
+
+          // Hledej iTunes image
+          const itunesImage = item.getElementsByTagNameNS('http://www.itunes.com/dtds/podcast-1.0.dtd', 'image')[0];
+          const imageUrl = itunesImage?.getAttribute('href') || '';
+
+          // Formátuj datum
+          const dateObj = new Date(pubDate);
+          const formattedDate = dateObj.toLocaleDateString('cs-CZ', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          });
+
+          // Vyčisti popis (odstraň HTML tagy)
+          const cleanDescription = description
+            .replace(/<[^>]*>/g, '')
+            .replace(/&nbsp;/g, ' ')
+            .replace(/&amp;/g, '&')
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, "'")
+            .substring(0, 250)
+            .trim();
+
+          episodesHtml += `
+            <div class="episode-card">
+              ${imageUrl ? `<div class="episode-image"><img src="${imageUrl}" alt="${title}" loading="lazy"></div>` : ''}
+              <div class="episode-content">
+                <div class="episode-date">📅 ${formattedDate}</div>
+                <h3 class="episode-title">${title}</h3>
+                <p class="episode-description">${cleanDescription}${cleanDescription.length >= 250 ? '...' : ''}</p>
+                <a href="${link}" target="_blank" rel="noopener noreferrer" class="episode-link">▶ Poslechnout</a>
+              </div>
+            </div>
+          `;
+        }
+
+        container.innerHTML = episodesHtml;
+
+      } catch (error) {
+        console.error('Chyba při načítání epizod:', error);
+        container.innerHTML = `<div class="error">Nelze načíst epizody. Zkuste znovu později.</div>`;
+      }
+    }
+
+    // Načti epizody když se stránka nahraje
+    document.addEventListener('DOMContentLoaded', loadPodcastEpisodes);
+  </script>
 </body>
 </html>
