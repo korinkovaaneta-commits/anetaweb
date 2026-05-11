@@ -8,6 +8,105 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .episodes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .episode {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 1.5rem;
+      align-items: start;
+      padding: 1.5rem;
+      background: #FFFFFF;
+      border: 1px solid #F0F0F0;
+      border-top: 4px solid #C0365A;
+      border-radius: 4px;
+      transition: all 0.25s ease;
+    }
+
+    .episode:hover {
+      border-color: #1C3F6E;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .episode__image {
+      width: 150px;
+      height: 150px;
+      border-radius: 4px;
+      overflow: hidden;
+      background: #F8F8F8;
+    }
+
+    .episode__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .episode__number {
+      display: none;
+    }
+
+    .episode__info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .episode__guest {
+      font-size: 12px;
+      color: #888888;
+      margin-bottom: 0.5rem;
+      font-weight: 400;
+    }
+
+    .episode__title {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #0A0A0A;
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+
+    .episode__desc {
+      font-size: 13px;
+      color: #555555;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+
+    .episode__play {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: #0A0A0A;
+      color: #FFFFFF;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      width: fit-content;
+    }
+
+    .episode__play:hover {
+      background: #1C3F6E;
+    }
+
+    @media (max-width: 768px) {
+      .episode {
+        grid-template-columns: 1fr;
+      }
+
+      .episode__image {
+        width: 100%;
+        height: auto;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -88,37 +187,11 @@
         <h2>Podcast o práci</h2>
         <p class="section__desc">Rozhovory i solo epizody o práci, kariéře a životě. Protože jedno bez druhého stejně nejde.</p>
       </div>
-      <div class="episodes">
-        <div class="episode">
-          <div class="episode__number">68</div>
-          <div class="episode__info">
-            <p class="episode__guest">Sandra Fridrichová</p>
-            <h3 class="episode__title">Když jste úspěšní, ale uvnitř prázdní</h3>
-            <p class="episode__desc">Když ztratíme roli, kterou jsme roky zastávali, zůstane po ní prázdné místo. A právě v té prázdnotě se začíná rodit něco nového. Možná poprvé po dlouhé době přemýšlíme…</p>
-            <a href="podcast/article1.html" class="episode__play">▶ Přečíst a poslechnout</a>
-          </div>
-        </div>
-        <div class="episode">
-          <div class="episode__number">67</div>
-          <div class="episode__info">
-            <p class="episode__guest">Aneta Kořínková</p>
-            <h3 class="episode__title">Co dělat, když nevíš, co chceš dělat</h3>
-            <p class="episode__desc">Hledání nové práce není jen o posílání životopisů a čekání na odpovědi. Je to období, kdy se potkáváme sami se sebou – s tím, co chceme, co už nechceme…</p>
-            <a href="podcast/article2.html" class="episode__play">▶ Přečíst a poslechnout</a>
-          </div>
-        </div>
-        <div class="episode">
-          <div class="episode__number">66</div>
-          <div class="episode__info">
-            <p class="episode__guest">Michaela Raková</p>
-            <h3 class="episode__title">Češi a práce: Co nás doopravdy motivuje</h3>
-            <p class="episode__desc">V tomto Podcastu o práci jsem si povídala s Míšou Rakovou, zakladatelkou agentury 52 Pages, která stojí za rozsáhlým průzkumem Uncover…</p>
-            <a href="podcast/article7.html" class="episode__play">▶ Přečíst a poslechnout</a>
-          </div>
-        </div>
+      <div id="homepage-episodes" class="episodes">
+        <div style="padding: 2rem; text-align: center; color: #888888;">Načítám podcasty...</div>
       </div>
       <div class="section__cta">
-        <a href="podcast.html" class="btn btn--light">Všechny epizody</a>
+        <a href="podcast.html" class="btn btn--outline">Všechny epizody</a>
       </div>
     </div>
   </section>
@@ -198,5 +271,82 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    // Načti poslední 3 podcasty z RSS feed na úvodní stránku
+    async function loadHomepageEpisodes() {
+      const container = document.getElementById('homepage-episodes');
+      const rssUrl = 'https://feeds.libsyn.com/304163/podcastopraci';
+
+      try {
+        const response = await fetch(rssUrl);
+
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+
+        const data = await response.text();
+
+        // Parse XML
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(data, 'text/xml');
+
+        if (xmlDoc.getElementsByTagName('parsererror').length > 0) {
+          throw new Error('Chyba při parsování XML');
+        }
+
+        const items = xmlDoc.getElementsByTagName('item');
+
+        if (items.length === 0) {
+          container.innerHTML = '<div style="padding: 2rem; text-align: center; color: #888888;">Žádné epizody nenalezeny</div>';
+          return;
+        }
+
+        let episodesHtml = '';
+        const limit = Math.min(3, items.length); // Poslední 3 epizody
+
+        for (let i = 0; i < limit; i++) {
+          const item = items[i];
+
+          const title = item.getElementsByTagName('title')[0]?.textContent || 'Bez názvu';
+          const description = item.getElementsByTagName('description')[0]?.textContent || '';
+          const link = item.getElementsByTagName('link')[0]?.textContent || '#';
+
+          // Hledej iTunes image
+          const itunesImage = item.getElementsByTagNameNS('http://www.itunes.com/dtds/podcast-1.0.dtd', 'image')[0];
+          const imageUrl = itunesImage?.getAttribute('href') || '';
+
+          // Vyčisti popis (odstraň HTML tagy)
+          const cleanDescription = description
+            .replace(/<[^>]*>/g, '')
+            .replace(/&nbsp;/g, ' ')
+            .replace(/&amp;/g, '&')
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, "'")
+            .substring(0, 150)
+            .trim();
+
+          episodesHtml += `
+            <div class="episode">
+              ${imageUrl ? `<div class="episode__image"><img src="${imageUrl}" alt="${title}" loading="lazy"></div>` : ''}
+              <div class="episode__info">
+                <h3 class="episode__title">${title}</h3>
+                <p class="episode__desc">${cleanDescription}${cleanDescription.length >= 150 ? '...' : ''}</p>
+                <a href="${link}" target="_blank" rel="noopener noreferrer" class="episode__play">▶ Poslechnout</a>
+              </div>
+            </div>
+          `;
+        }
+
+        container.innerHTML = episodesHtml;
+
+      } catch (error) {
+        console.error('Chyba při načítání podcastů:', error);
+        container.innerHTML = '<div style="padding: 2rem; text-align: center; color: #C0365A;">Nelze načíst podcasty</div>';
+      }
+    }
+
+    // Načti epizody když se stránka nahraje
+    document.addEventListener('DOMContentLoaded', loadHomepageEpisodes);
+  </script>
 </body>
 </html>
