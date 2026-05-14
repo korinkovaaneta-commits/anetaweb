@@ -210,13 +210,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const title = card.querySelector('.article-card__title');
     if (title) {
       const comicType = getComicType(title.textContent);
-      const imageUrl = createComicImageUrl(comicType);
+      const svgContent = generateComicSVG(comicType);
 
       const imageDiv = document.createElement('div');
       imageDiv.className = 'article-card__image';
-      imageDiv.style.backgroundImage = `url("${imageUrl}")`;
-      imageDiv.style.backgroundSize = 'cover';
-      imageDiv.style.backgroundPosition = 'center';
+      imageDiv.innerHTML = svgContent;
       card.insertBefore(imageDiv, card.firstChild);
     }
   });
@@ -227,11 +225,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const titleElement = document.querySelector('h1');
     if (titleElement) {
       const comicType = getComicType(titleElement.textContent);
-      const imageUrl = createComicImageUrl(comicType);
-      headerImage.style.backgroundImage = `url("${imageUrl}")`;
-      headerImage.style.backgroundSize = 'contain';
-      headerImage.style.backgroundRepeat = 'no-repeat';
-      headerImage.style.backgroundPosition = 'center';
+      const svgContent = generateComicSVG(comicType);
+      headerImage.innerHTML = svgContent;
     }
   }
 });
