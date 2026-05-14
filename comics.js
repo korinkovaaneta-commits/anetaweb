@@ -51,7 +51,8 @@ const comicIllustrations = {
     <rect x="75" y="75" width="50" height="50" fill="#F0A8D8" stroke="#000" stroke-width="3" rx="3"/>
     <circle cx="155" cy="50" r="25" fill="#FFF" stroke="#000" stroke-width="3"/>
     <path d="M 135 65 L 125 75 L 135 85" fill="#FFF" stroke="#000" stroke-width="2"/>
-    <text x="155" y="58" font-size="20" font-weight="bold" fill="#000" text-anchor="middle" font-family="Arial">💡</text>
+    <circle cx="155" cy="44" r="7" fill="#FFD700" stroke="#000" stroke-width="1.5"/>
+    <path d="M 151 52 L 151 56 M 155 52 L 155 56 M 159 52 L 159 56" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
     <text x="100" y="170" font-size="24" font-weight="bold" fill="#000" text-anchor="middle" font-family="Arial">IDEA!</text>
   </svg>`,
 
