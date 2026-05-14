@@ -109,20 +109,24 @@ document.addEventListener('DOMContentLoaded', function() {
   const articleContents = document.querySelectorAll('article.article-content');
 
   articleContents.forEach((article, index) => {
-    const h1 = article.querySelector('h1') || document.querySelector('.article-header h1');
+    // First check for data-article attribute
+    let configKey = article.getAttribute('data-article');
 
-    if (!h1) return;
+    // If no data attribute, try to match title from h1
+    if (!configKey) {
+      const h1 = article.querySelector('h1') || document.querySelector('.article-header h1');
+      if (h1) {
+        const titleLower = h1.textContent.toLowerCase();
 
-    const titleLower = h1.textContent.toLowerCase();
-    let configKey = null;
-
-    // Match title to config key
-    if (titleLower.includes('cv') || titleLower.includes('životopis')) {
-      configKey = 'cv';
-    } else if (titleLower.includes('kalendář') || titleLower.includes('školní rok')) {
-      configKey = 'calendar';
-    } else if (titleLower.includes('jak nezískat')) {
-      configKey = 'nojob';
+        // Match title to config key
+        if (titleLower.includes('cv') || titleLower.includes('životopis')) {
+          configKey = 'cv';
+        } else if (titleLower.includes('kalendář') || titleLower.includes('školní rok')) {
+          configKey = 'calendar';
+        } else if (titleLower.includes('jak nezískat')) {
+          configKey = 'nojob';
+        }
+      }
     }
 
     if (configKey) {
@@ -130,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Also apply to article header sections for preview
+  // Also apply to article header sections for preview (legacy support)
   const articleHeaders = document.querySelectorAll('.article-header');
   articleHeaders.forEach((header) => {
     const h1 = header.querySelector('h1');
