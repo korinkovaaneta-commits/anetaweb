@@ -1,0 +1,270 @@
+/* ===========================
+   ARTICLE COVER COMPONENT
+=========================== */
+
+.article-cover {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  padding: 60px 48px;
+  box-sizing: border-box;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+/* ===========================
+   VARIANT: LEFT EDITORIAL
+=========================== */
+
+.article-cover.variant-left {
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.article-cover.variant-left::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 6px;
+  height: 100%;
+  background: #C0365A;
+  z-index: 0;
+}
+
+.article-cover.variant-left .cover-label {
+  align-self: flex-start;
+  margin-bottom: 24px;
+}
+
+.article-cover.variant-left .cover-title {
+  text-align: left;
+  max-width: 85%;
+  line-height: 1.2;
+}
+
+.article-cover.variant-left .cover-author {
+  align-self: flex-start;
+}
+
+/* ===========================
+   VARIANT: CENTER EDITORIAL
+=========================== */
+
+.article-cover.variant-center {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.article-cover.variant-center::before {
+  content: '';
+  position: absolute;
+  left: 48px;
+  right: 48px;
+  top: 36px;
+  height: 3px;
+  background: #C0365A;
+  z-index: 0;
+}
+
+.article-cover.variant-center .cover-label {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.article-cover.variant-center .cover-title {
+  text-align: center;
+  max-width: 90%;
+}
+
+.article-cover.variant-center .cover-author {
+  text-align: center;
+}
+
+/* ===========================
+   VARIANT: QUOTE STYLE
+=========================== */
+
+.article-cover.variant-quote {
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.article-cover.variant-quote::before {
+  content: '"';
+  position: absolute;
+  left: 36px;
+  top: 20px;
+  font-size: 120px;
+  color: #C0365A;
+  opacity: 0.3;
+  line-height: 0.8;
+  z-index: 0;
+}
+
+.article-cover.variant-quote::after {
+  content: '"';
+  position: absolute;
+  right: 36px;
+  bottom: 20px;
+  font-size: 120px;
+  color: #C0365A;
+  opacity: 0.3;
+  line-height: 0.8;
+  z-index: 0;
+}
+
+.article-cover.variant-quote .cover-content {
+  text-align: center;
+  max-width: 85%;
+  position: relative;
+  z-index: 1;
+}
+
+.article-cover.variant-quote .cover-label {
+  display: none;
+}
+
+.article-cover.variant-quote .cover-title {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.article-cover.variant-quote .cover-subtitle {
+  font-size: 18px;
+  color: #555555;
+  margin-bottom: 24px;
+  font-weight: 400;
+}
+
+.article-cover.variant-quote .cover-author {
+  font-size: 14px;
+  color: #888888;
+}
+
+/* ===========================
+   SHARED ELEMENTS
+=========================== */
+
+.cover-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #C0365A;
+  margin-bottom: 16px;
+  z-index: 1;
+  position: relative;
+}
+
+.cover-title {
+  font-size: 56px;
+  font-weight: 500;
+  color: #0A0A0A;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  z-index: 1;
+  position: relative;
+}
+
+.cover-title .accent {
+  color: #C0365A;
+  font-weight: 600;
+}
+
+.cover-subtitle {
+  font-size: 16px;
+  color: #555555;
+  margin-top: 12px;
+  line-height: 1.4;
+  font-weight: 400;
+  z-index: 1;
+  position: relative;
+}
+
+.cover-author {
+  font-size: 13px;
+  color: #888888;
+  font-weight: 400;
+  z-index: 1;
+  position: relative;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width: 768px) {
+  .article-cover {
+    padding: 40px 32px;
+    aspect-ratio: 4 / 5;
+  }
+
+  .cover-title {
+    font-size: 36px;
+    line-height: 1.2;
+  }
+
+  .article-cover.variant-center::before,
+  .article-cover.variant-left::before {
+    display: none;
+  }
+
+  .article-cover.variant-center::after,
+  .article-cover.variant-quote::after {
+    content: '';
+    position: absolute;
+    left: 32px;
+    right: 32px;
+    bottom: 40%;
+    height: 2px;
+    background: #C0365A;
+  }
+
+  .article-cover.variant-quote::before {
+    font-size: 80px;
+    left: 16px;
+    top: 12px;
+  }
+
+  .article-cover.variant-quote::after {
+    content: '';
+  }
+}
+
+@media (max-width: 480px) {
+  .article-cover {
+    padding: 32px 24px;
+  }
+
+  .cover-title {
+    font-size: 28px;
+  }
+
+  .cover-label {
+    font-size: 11px;
+  }
+
+  .cover-subtitle {
+    font-size: 14px;
+  }
+}
+
+/* ===========================
+   INLINE VARIANT SWITCHER
+=========================== */
+
+.cover-variant-dot {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  background: #C0365A;
+  border-radius: 50%;
+  margin: 0 2px;
+  vertical-align: middle;
+}
