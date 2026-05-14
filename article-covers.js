@@ -28,6 +28,87 @@ const coverConfigs = {
     subtitle: '25 osvědčených tipů',
     author: 'Aneta Kořínková',
     variant: 'quote'
+  },
+
+  // Article 4: Soft skills
+  'softskills': {
+    category: 'ROZVOJ',
+    title: 'Soft skills budoucnosti',
+    accentWord: 'budoucnosti',
+    author: 'Aneta Kořínková',
+    variant: 'left'
+  },
+
+  // Article 5: Elevator pitch
+  'elevator': {
+    category: 'KARIÉRA',
+    title: '30 vět které můžete říct na pohovoru i v posteli',
+    accentWord: 'pohovoru',
+    author: 'Aneta Kořínková',
+    variant: 'center'
+  },
+
+  // Article 6: Sociální sítě
+  'socialmedia': {
+    category: 'MARKETING',
+    title: 'Jak využívat sociální sítě k profesnímu růstu',
+    accentWord: 'růstu',
+    author: 'Aneta Kořínková',
+    variant: 'left'
+  },
+
+  // Article 7: Odolnost
+  'resilience': {
+    category: 'ROZVOJ',
+    title: 'Jak budovat odolnost',
+    subtitle: 'Zvládání neúspěchů a odmítnutí v kariéře',
+    author: 'Aneta Kořínková',
+    variant: 'center'
+  },
+
+  // Article 8: Pracovní trh
+  'jobmarket': {
+    category: 'TRHY',
+    title: 'Data z pracovního trhu',
+    accentWord: 'pracovního',
+    author: 'Aneta Kořínková',
+    variant: 'left'
+  },
+
+  // Article 9: Prázdniny
+  'vacation': {
+    category: 'RODINA & PRÁCE',
+    title: 'Prázdninový průvodce pro pracující rodiče',
+    accentWord: 'rodiče',
+    author: 'Aneta Kořínková',
+    variant: 'center'
+  },
+
+  // Article 10: Pracující maminky
+  'moms': {
+    category: 'RODINA & PRÁCE',
+    title: '15 překvapujících faktů o pracujících maminkách',
+    accentWord: 'maminkách',
+    author: 'Aneta Kořínková',
+    variant: 'left'
+  },
+
+  // Article 11: Elevator pitch
+  'pitch': {
+    category: 'KARIÉRA',
+    title: 'Připravte si svůj Elevator Pitch',
+    accentWord: 'Pitch',
+    author: 'Aneta Kořínková',
+    variant: 'quote'
+  },
+
+  // Article 12: Zkrácený úvazek
+  'parttime': {
+    category: 'KARIÉRA',
+    title: 'Jak si vyjednat práci na zkrácený úvazek',
+    accentWord: 'zkrácený',
+    author: 'Aneta Kořínková',
+    variant: 'center'
   }
 };
 
