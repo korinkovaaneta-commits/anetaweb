@@ -210,14 +210,15 @@ strong {
 }
 
 .btn--primary {
-  background: var(--primary);
-  color: var(--white);
+  background: var(--primary) !important;
+  color: var(--white) !important;
+  border: none !important;
 }
 
 .btn--primary:hover {
-  background: #1a2d54;
-  box-shadow: 0 6px 20px rgba(36, 59, 107, 0.2);
-  transform: translateY(-2px);
+  background: #1a2d54 !important;
+  box-shadow: 0 6px 20px rgba(36, 59, 107, 0.2) !important;
+  transform: translateY(-2px) !important;
 }
 
 .btn--ghost {
@@ -470,25 +471,40 @@ strong {
    CARDS / CONTENT
 =========================== */
 .cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+  gap: 2rem !important;
+  border: none !important;
+  overflow: visible !important;
+  border-radius: 0 !important;
 }
 
 .card {
-  padding: 2.5rem;
-  background: var(--white);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  transition: var(--transition);
-  border: none;
-  display: flex;
-  flex-direction: column;
+  padding: 2.5rem !important;
+  background: var(--white) !important;
+  border-radius: var(--radius) !important;
+  box-shadow: var(--shadow) !important;
+  transition: var(--transition) !important;
+  border: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  border-right: none !important;
+  border-left: none !important;
+  display: flex !important;
+  flex-direction: column !important;
 }
 
 .card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-8px) !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+
+.card:last-child {
+  border: none !important;
+}
+
+.card:nth-child(3n) {
+  border: none !important;
 }
 
 .card__category {
