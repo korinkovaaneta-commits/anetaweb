@@ -125,13 +125,43 @@
     }
 
     @media (max-width: 768px) {
-      .episode {
-        grid-template-columns: 1fr;
+      html {
+        scroll-padding-top: 5rem;
       }
 
-      .episode__image {
+      .header {
+        background: var(--bg);
+      }
+
+      #homepage-episodes {
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 3.5rem !important;
+      }
+
+      #homepage-episodes .episode {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1rem;
+        min-width: 0;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+
+      #homepage-episodes .episode:nth-child(n + 3) {
+        display: none;
+      }
+
+      #homepage-episodes .episode__image {
         width: 100%;
         height: auto;
+        aspect-ratio: 1;
+        margin-bottom: 0;
+      }
+
+      #homepage-episodes .episode__title {
+        margin-bottom: 0;
+        overflow-wrap: anywhere;
       }
     }
   </style>
