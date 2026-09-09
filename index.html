@@ -7,7 +7,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=2024" />
+  <link rel="stylesheet" href="style.css?v=2025" />
+
+  <!-- Cookie consent management -->
+  <script src="cookies.js"></script>
+  <!-- Google Analytics 4 (respects cookie consent) -->
+  <script src="analytics.js"></script>
   <style>
     .episodes {
       display: grid;
@@ -142,7 +147,6 @@
         <li><a href="#clanky" class="nav__link">Články</a></li>
         <li><a href="#podcast" class="nav__link">Podcast</a></li>
         <li><a href="#omne" class="nav__link">O mně</a></li>
-        <li><a href="#kontakt" class="nav__link nav__link--cta">Kontakt</a></li>
       </ul>
       <button class="nav__burger" id="navBurger" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -154,50 +158,16 @@
   <section class="hero" id="uvod">
     <div class="container hero__inner">
       <div class="hero__text">
-        <div class="eyebrow">Očima náborářky</div>
-        <h1>Realita <span style="color: #C0365A; font-weight: 500;">pracovního trhu</span></h1>
-        <p style="color: #555555; font-weight: 400;">Po skoro dvaceti letech v náboru vím, jak to za oponou vypadá. Chci ti <strong style="color: #1C3F6E;">pomoci se v tom neztratit</strong>, ať jsi v <strong style="color: #0A0A0A;">jakékoliv životní fázi.</strong></p>
+        <div class="eyebrow">Aneta o práci</div>
+        <h1>Abyste se <span style="color: #A63D5E; font-weight: 500;">těšili</span> i na pondělí</h1>
+        <p style="color: #404040; font-weight: 400;">Podcast, články a inspirace pro všechny, kteří chtějí lépe rozumět světu práce.</p>
         <div class="hero__actions">
           <a href="#clanky" class="btn btn--primary">Číst články</a>
           <a href="#podcast" class="btn btn--outline">Podcast</a>
         </div>
       </div>
       <div class="hero__image">
-        <div class="hero__avatar">AK</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ARTICLES -->
-  <section class="section section--light" id="clanky">
-    <div class="container">
-      <div class="section__header">
-        <div class="eyebrow">Články</div>
-        <h2>Jak to chodí <span class="text-raspberry">na pracovním trhu</span></h2>
-        <p class="section__desc">Píšu o práci tak, jak ji opravdu zažíváme - s <strong style="color: #0A0A0A;">kariérními pochybnostmi, životními změnami</strong> a chvílemi, kdy si nejsme jistí, co dál.</p>
-      </div>
-      <div class="cards">
-        <article class="card">
-          <div class="card__category">Kariéra</div>
-          <h3 class="card__title">Když firmy čtou CV, ale nevidí člověka</h3>
-          <p class="card__excerpt">Představte si, že jste se právě rozhodli, že se pustíte do hledání práce. Co uděláte jako první? Nejspíše si napíšete nebo upravíte životopis. Začnete škrtat, přepisovat, přidávat…</p>
-          <a href="articles_content/article1.html" class="card__link">Číst dál →</a>
-        </article>
-        <article class="card">
-          <div class="card__category">Vzdělávání</div>
-          <h3 class="card__title">Kalendář školního roku pro pracující rodiče</h3>
-          <p class="card__excerpt">Konec prázdnin se blíží. Těšíš se, že ti skončí vymýšlení prázdninového programu, příměstské tábory, dovážení, vyzvedávání a každý den jinak? Myslíš, že zase nastane nějaký řád…</p>
-          <a href="articles_content/article2.html" class="card__link">Číst dál →</a>
-        </article>
-        <article class="card">
-          <div class="card__category">Práce</div>
-          <h3 class="card__title">Jak nezískat práci: 25 osvědčených tipů</h3>
-          <p class="card__excerpt">Nutí vás okolí pracovat, ale vy nechcete? Chcete si užívat sladké nicnedělání, ale přitom nevypadat úplně nápadně? Sepsala jsem pro vás pár tipů, jak práci nezískat…</p>
-          <a href="articles_content/article3.html" class="card__link">Číst dál →</a>
-        </article>
-      </div>
-      <div class="section__cta">
-        <a href="articles.html" class="btn btn--outline">Všechny články</a>
+        <img src="images/hero-photo.jpg" alt="Aneta Kořínková" class="hero__avatar">
       </div>
     </div>
   </section>
@@ -205,32 +175,64 @@
   <!-- PODCAST -->
   <section class="section section--light" id="podcast">
     <div class="container">
-      <div class="section__header">
-        <div class="eyebrow">Podcast</div>
-        <h2>Podcast o práci</h2>
+      <div class="section__header section__header--podcast">
+        <h2 class="section__title--main">Podcast o práci</h2>
         <p class="section__desc">Rozhovory i solo epizody o práci, kariéře a životě. Protože jedno bez druhého stejně nejde.</p>
       </div>
       <div id="homepage-episodes" class="episodes">
         <div style="padding: 2rem; text-align: center; color: #888888;">Načítám podcasty...</div>
       </div>
-      <div class="section__cta">
-        <a href="podcast.html" class="btn btn--outline">Všechny epizody</a>
+      <div class="section__cta section__cta--podcast">
+        <a href="podcast.html" class="section__link">Všechny epizody →</a>
       </div>
     </div>
   </section>
 
-  <!-- NEWSLETTER -->
-  <section class="section section--salmon">
+  <!-- ARTICLES -->
+  <section class="section section--light" id="clanky">
+    <div class="container">
+      <div class="section__header section__header--articles">
+        <h2 class="section__title--main">Čtení o práci</h2>
+        <h2 class="section__title--sub">Jak ji <span class="text-raspberry">skutečně zažíváme</span></h2>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <a href="articles_content/article1.html" class="card__inner">
+            <h3 class="card__title">Když firmy čtou CV, ale nevidí člověka</h3>
+            <p class="card__excerpt">Představte si, že jste se právě rozhodli, že se pustíte do hledání práce. Co uděláte jako první?</p>
+            <span class="card__link">Přečíst článek →</span>
+          </a>
+        </article>
+        <article class="card">
+          <a href="articles_content/article2.html" class="card__inner">
+            <h3 class="card__title">Kalendář školního roku pro pracující rodiče</h3>
+            <p class="card__excerpt">Konec prázdnin se blíží. Těšíš se, že ti skončí vymýšlení prázdninového programu, příměstské tábory, dovážení, vyzvedávání a každý den jinak?</p>
+            <span class="card__link">Přečíst článek →</span>
+          </a>
+        </article>
+        <article class="card">
+          <a href="articles_content/article3.html" class="card__inner">
+            <h3 class="card__title">Jak nezískat práci: 25 osvědčených tipů</h3>
+            <p class="card__excerpt">Nutí vás okolí pracovat, ale vy nechcete? Chcete si užívat sladké nicnedělání, ale přitom nevypadat úplně nápadně?</p>
+            <span class="card__link">Přečíst článek →</span>
+          </a>
+        </article>
+      </div>
+      <div class="section__cta">
+        <a href="articles.html" class="section__link">Všechny články →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOPIS O PRÁCI -->
+  <section class="section section--light">
     <div class="container">
       <div class="newsletter">
         <div class="newsletter__text">
-          <h2 class="newsletter__title">Zpráva o úspěchu</h2>
-          <p class="newsletter__desc">Jednou za čas vám pošlu newsletter plný tipů, inspirace a&nbsp;novinek z&nbsp;pracovního trhu. Bez spamu, bez zbytečností.</p>
+          <h2 class="newsletter__title">Dopis o práci</h2>
+          <p class="newsletter__desc">Jednou za čas vám pošlu osobnější dopis. Sdílím v něm vlastní zkušenosti, příběhy a myšlenky, které se nevejdou ani do podcastu, ani na LinkedIn.</p>
         </div>
-        <form class="newsletter__form" onsubmit="return false;">
-          <input type="email" placeholder="váš@email.cz" class="newsletter__input" />
-          <button type="submit" class="btn btn--primary">Chci odebírat</button>
-        </form>
+<div class="pew"><style>.pe .pb,.pew{display:flex}@media (min-width:480px){.pe{min-width:480px;max-width:800px;width:unset!important}.pe .iw{width:100%}.pe .pf{display:flex;align-items:flex-start;gap:1em}.pe .pf input[type=email]{min-width:340px}.pe button{margin:0!important;height:50px;width:fit-content!important}.pe .pb a{line-height:1em!important}}.pew{justify-content:center;align-items:center;width:100%;height:100%}.pew *{box-sizing:border-box}.pe{width:230px;font-family:'Nunito Sans',sans-serif}.pe .pf{margin-bottom:1em}.pe input[type=email]{width:100%;height:50px;font-size:15px;padding:15px;border:1px solid #d8d8d8;border-radius:10px}.pe .iw.he{border-radius:10px;background:#cb0000;text-align:center}.pe .iw.he input{border-color:#cb0000}.pe .iw.he p.error{padding:5px 14px;margin:0;color:#fff;font-size:13px}.pe button{color:#fff;font-size:16px;font-weight:600;width:100%;border:none;border-radius:10px;padding:.85rem 1.8rem;background-size:200% auto;background-image:linear-gradient(-45deg,#2d2d2d 0,#5a5a5a 100%);white-space:nowrap;cursor:pointer;margin-top:10px}.pe .info,.pe a{color:#1f1f1f}.pe .info{padding:20px 15px;border-radius:10px;background:rgba(255,255,255,.4)}.pe p{line-height:17px;margin:0}.pe p+p{margin-top:16px}.pe .pb{font-size:12px;opacity:.7;align-items:center;gap:5px}.pe .pb svg{width:90px}.pe .pb a{line-height:normal}.pe .success{padding:15px;background:#d8ffe2;border-radius:10px;font-size:15px;line-height:22px;margin-bottom:10px}</style> <div id="forendorsEmbedContainer" class="pe"> <form id="forendorsEmbedForm" class="pf"> <div class="iw"> <input type="email" name="email" placeholder="Váš e&#8209;mail:" required> </div><button type="submit">Chci číst Dopis o práci</button> </form> <div class="info"> <p class="agreement"> Vyplněním e&#8209;mailu se přihlašujete k obsahovému newsletteru tvůrce a souhlasíte s <a href="https://www.forendors.cz/vop" target="_blank" rel="noopener noreferrer">obchodními podmínkami</a>. </p><p class="pb"> <span>Powered by </span> <a href="https://www.forendors.cz" target="_blank" rel="noopener noreferrer"> <svg version="1.1" viewBox="0 0 372.01 62.19" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <defs> <style>.cls-1{fill: url(#logo-gradient_2-2);}.cls-1, .cls-2, .cls-3{stroke-width: 0px;}.cls-2{fill: url(#logo-gradient_2);}.cls-3{fill: #1f1f1f;}</style> <linearGradient id="logo-gradient_2" x1="80.49" x2="137.96" y1="167.12" y2="109.23" gradientUnits="userSpaceOnUse"> <stop stop-color="#e51139" offset="0"/> <stop stop-color="#f6ad12" offset="1"/> </linearGradient> <linearGradient id="logo-gradient_2-2" x1="72.53" x2="135.02" y1="167.35" y2="104.39" gradientTransform="translate(-79.99,-104.9)" xlink:href="#logo-gradient_2"/> <linearGradient id="linearGradient974" x1="80.49" x2="137.96" y1="167.12" y2="109.23" gradientTransform="translate(-79.99,-104.9)" gradientUnits="userSpaceOnUse" xlink:href="#logo-gradient_2"/> </defs> <path class="cls-3" d="m119.73 54.5c3.37 0 6.64-0.99 9.48-2.87 4.83-3.2 7.71-8.54 7.7-14.29 0.05-5.67-2.8-10.97-7.61-14.17-2.87-1.91-6.19-2.93-9.58-2.93-2.28 0-4.5 0.45-6.6 1.35-6.32 2.64-10.51 8.97-10.45 15.74-0.04 6.84 4.15 13.2 10.44 15.82 2.11 0.89 4.33 1.35 6.61 1.35zm-9.86-17.16c-0.02-3.31 1.56-6.27 4.34-8.12 1.66-1.11 3.59-1.7 5.57-1.7 1.32 0 2.61 0.26 3.84 0.77 3.71 1.55 6.01 5.02 6.02 9.07 0 4.06-2.3 7.55-6.02 9.1-1.23 0.51-2.52 0.77-3.84 0.77-1.98 0-3.9-0.59-5.55-1.7-2.78-1.87-4.37-4.86-4.35-8.2z"/> <path class="cls-3" d="m158.25 27.37c2.02 0 3.67-1.65 3.67-3.67v-3.6h-3.79c-6.75 0-13.06 4.18-15.7 10.4-0.89 2.05-1.34 4.3-1.34 6.68v17.16h3.53c2.1 0 3.81-1.71 3.81-3.81v-13.35c0-1.35 0.26-2.64 0.76-3.82 1.5-3.58 5.1-5.99 8.94-5.99h0.11z"/> <path class="cls-3" d="m182.91 54.02c2.24 0 4.44-0.4 6.53-1.2 3.93-1.5 8.05-6.33 8.23-6.53l0.08-0.09-2.14-1.73c-0.79-0.64-1.79-0.99-2.82-0.99-1.11 0-2.16 0.4-2.96 1.14-2.07 1.9-4.38 2.9-6.67 2.9-1.29 0-2.61-0.31-3.91-0.93l-0.54-0.26 0.42-0.43 17.92-18.03-0.05-0.08c-2.84-4.22-7.39-6.91-12.48-7.4-0.54-0.05-1.08-0.08-1.62-0.08-4.52 0-8.76 1.76-11.94 4.96-3.11 3.01-4.89 7.35-4.9 11.91 0 4.59 1.77 8.96 4.88 12 2.99 3.07 7.35 4.82 11.97 4.82zm-7.07-23.92c1.8-1.86 4.34-2.92 6.99-2.92 1.3 0 2.56 0.25 3.75 0.74l0.6 0.24-0.46 0.45c-3.53 3.48-8.41 8.33-12.44 12.38l-0.45 0.46-0.24-0.6c-1.49-3.69-0.59-8.01 2.25-10.75z"/> <path class="cls-3" d="m219.63 20.17h-0.3c-6.72 0-12.99 4.18-15.6 10.41-0.89 2.05-1.34 4.3-1.34 6.67v17.15h3.46c2.1 0 3.81-1.71 3.81-3.81v-13.35c-0.02-2.6 1.01-5.07 2.88-6.95 1.75-1.8 4.27-2.84 6.92-2.85h0.03c2.67 0 5.22 1.04 7.01 2.86 1.87 1.87 2.89 4.34 2.87 6.94v13.34c0 2.1 1.71 3.81 3.81 3.81h3.46v-17.15c0-2.37-0.45-4.62-1.34-6.67-2.66-6.23-8.96-10.41-15.66-10.41z"/> <path class="cls-3" d="m273.78 43.82c0.89-2.08 1.33-4.31 1.33-6.64v-30.56h-2.72c-2.51 0-4.55 2.04-4.55 4.55v8.94h-9.81c-2.33 0-4.56 0.45-6.63 1.33-6.38 2.66-10.61 8.99-10.53 15.74-0.02 5.74 2.86 11.08 7.69 14.28 2.84 1.89 6.13 2.89 9.5 2.89 2.28 0 4.5-0.45 6.6-1.34 4.09-1.73 7.33-4.99 9.11-9.18zm-5.93-16.02v9.39c0 1.35-0.26 2.65-0.77 3.86-1.48 3.6-5.08 6.03-8.96 6.03h-0.09v-0.43 0.43c-4.06 0-7.55-2.32-9.11-6.05-1.57-3.75-0.77-7.88 2.09-10.78 1.82-1.83 4.37-2.87 6.98-2.87h0.04 9.39 0.43v0.43z"/> <path class="cls-3" d="m313.6 37.34c0.05-5.67-2.8-10.97-7.61-14.17-2.87-1.91-6.19-2.93-9.58-2.93-2.28 0-4.5 0.45-6.6 1.35-6.32 2.64-10.51 8.97-10.45 15.74-0.04 6.84 4.15 13.2 10.44 15.82 2.11 0.89 4.33 1.35 6.61 1.35 3.37 0 6.64-0.99 9.48-2.87 4.83-3.2 7.71-8.54 7.7-14.29zm-13.3 9.12c-1.23 0.51-2.52 0.77-3.84 0.77-1.98 0-3.9-0.59-5.55-1.7-2.78-1.87-4.37-4.86-4.35-8.2-0.02-3.31 1.56-6.27 4.34-8.12 1.66-1.11 3.59-1.7 5.57-1.7 1.32 0 2.61 0.26 3.84 0.77 3.71 1.55 6.01 5.02 6.02 9.07 0 4.06-2.3 7.55-6.02 9.1z"/> <path class="cls-3" d="m334.48 27.37h0.1c2.02 0 3.67-1.65 3.67-3.67v-3.6h-3.79c-6.75 0-13.06 4.18-15.7 10.4-0.89 2.05-1.34 4.3-1.34 6.68v17.16h3.53c2.1 0 3.81-1.71 3.81-3.81v-13.35c0-1.35 0.26-2.64 0.76-3.82 1.5-3.58 5.1-5.99 8.95-5.99z"/> <path class="cls-3" d="m94.34 11.03 0.04-0.02c0.92-0.45 2.17-0.69 3.9-0.74 1.97-0.07 3.51-1.68 3.51-3.67v-3.58l-0.27-0.03c-0.69-0.07-1.4-0.11-2.09-0.11-7.39 0-14.09 4.12-17.05 10.51-1.36 2.93-1.55 10.48-1.56 10.8l0.13 15.8c-0.09 5.06-0.88 10.48-6.02 12.46l-0.04 0.02c-0.47 0.23-1.03 0.4-1.7 0.53-1.77 0.33-3.06 1.91-3.06 3.75v3.84h0.31c7.23-0.23 13.54-4.25 16.44-10.5 1.35-2.91 1.42-10.08 1.42-10.38v-0.73-8.07-0.42h6.19c2.02 0 3.67-1.65 3.67-3.67v-3.6h-9.86v-0.44c0.16-4.45 0.97-9.81 6.02-11.75z"/> <path class="cls-3" d="m372 45.04c0.22-7.94-7.61-9.65-13.33-10.9-8.12-1.77-9.29-2.67-9.35-5.05-0.01-0.63 0.23-1.22 0.72-1.71 1.11-1.14 3.5-1.79 6.55-1.79h0.1c2.34 0.01 5.67 0.36 7.51 3.23 0.92 1.43 2.61 2.32 4.43 2.32h2.79c-0.34-6.85-6.29-11.59-14.63-11.59h-0.21c-7.93 0.08-13.67 4.09-13.65 9.55 0.01 3.65 1.51 6.33 4.57 8.18 2.77 1.67 6.51 2.48 9.8 3.1 6.99 1.32 8.36 2.69 8.31 4.48-0.06 2.12-3.6 3.23-7.07 3.23h-0.23c-3.7-0.06-7.25-1.29-8.84-3.07-1.03-1.15-2.44-1.81-3.87-1.82h-3.45c0.28 7.25 8.21 11.17 16.07 11.29h0.38c7.87 0 13.25-3.8 13.41-9.45z"/> <path class="cls-2" d="m0.02 49.75v12.44h3c6.87 0 12.44-5.57 12.44-12.44 0-6.11 4.96-11.07 11.07-11.07h15.85c6.87 0 12.44-5.57 12.44-12.44v-3h-28.3c-14.65 0-26.52 11.87-26.52 26.52z" fill="url(#linearGradient974)"/> <path class="cls-1" d="m47.28 0c-4.68 0-8.47 3.79-8.47 8.47v7.07h7.56c4.68 0 8.47-3.79 8.47-8.47v-7.07z" fill="url(#logo-gradient_2-2)"/> </svg> </a> </p></div></div><script>const PckConstants={EmailError:"Zadejte platnou e&#8209;mailovou adresu.",BaseApiUrl:"https://api.forendors.cz",GeneralErrorMessage:"Nepovedlo se vás přihlásit k odběru newsletteru :(",Handle:"korinkova.aneta"};class ForendorsEmbed{constructor(){if(this.container=document.getElementById("forendorsEmbedContainer"),null===this.container){console.error("Invalid Forendors embed code.");return}this.form=document.getElementById("forendorsEmbedForm"),this.form.addEventListener("submit",e=>{e.preventDefault(),e.stopImmediatePropagation(),this._formSubmit()})}async _formSubmit(){this._showError(null);let e=this._getEmail();try{let t=await fetch(`${PckConstants.BaseApiUrl}/newsletter/subscribe-public`,{method:"POST",headers:{Accept:"application/json","Content-Type":"application/json"},body:JSON.stringify({handle:PckConstants.Handle,email:e})});if(200!==t.status){try{let s=await t.json();if(void 0!==s.message&&""!==s.message){this._showError(s.message);return}}catch{}this._showError(PckConstants.GeneralErrorMessage);return}let r=await t.json();this._showSuccess(r.message)}catch(i){console.error(i)}}_showError(e){let t=this.form.querySelector("div.iw");if(null===e){t.classList.remove("he");let s=t.querySelector("p.error");null!==s&&s.remove()}else{t.classList.add("he");let r=document.createElement("p");r.classList.add("error"),r.innerHTML=e,t.appendChild(r)}}_getEmail(){return this.form.querySelector('input[type="email"]').value}_showSuccess(e){let t=document.createElement("div");t.innerHTML=e,t.classList.add("success"),this.form.remove(),this.container.prepend(t)}}const forendorsEmbed=new ForendorsEmbed;</script> </div>
       </div>
     </div>
   </section>
@@ -239,45 +241,36 @@
   <section class="section section--light" id="omne">
     <div class="container about">
       <div class="about__image">
-        <div class="about__avatar">AK</div>
+        <img src="images/about-photo.jpg" alt="Aneta Kořínková" class="about__photo">
       </div>
       <div class="about__text">
         <span class="section__tag">O mně</span>
-        <h2 class="section__title">Aneta Kořínková</h2>
-        <p>Pomáhám lidem najít práci, která jim dává smysl – a&nbsp;firmám sestavit tým, který funguje. Pracuju jako HR konzultantka, lektorka a&nbsp;průvodkyně kariérním rozvojem.</p>
-        <p>Věřím, že každý má potenciál uspět. Někdy stačí jen trochu jiný pohled, správný impuls nebo odvaha udělat první krok. A&nbsp;právě k&nbsp;tomu jsem tady.</p>
-        <p>Mimo práci jsem máma, manželka a&nbsp;věčná studentka. Baví mě podcast, psaní a&nbsp;čas trávený s&nbsp;lidmi, kteří mi dávají energii.</p>
-        <a href="#kontakt" class="btn btn--primary">Spojit se se mnou</a>
+        <h2 class="section__title">Proč mluvím právě o práci</h2>
+        <p>Práce nás ovlivňuje mnohem víc, než si často připouštíme.</p>
+        <p>Určuje, jak začínáme pondělí, kolik energie nám zbývá po práci i to, jak sami sebe vnímáme.</p>
+        <p>Právě proto se jí věnuji už téměř dvacet let. Za tu dobu jsem poznala svět práce z pohledu kandidátů, recruiterů, manažerů i firem.</p>
+        <p>Recruitment mě naučil dívat se na práci jinak. Dnes mě vedle samotného náboru fascinuje především to, jak lidé o práci přemýšlejí, jaká rozhodnutí dělají a jak ovlivňuje jejich život.</p>
+        <p>Proto vznikl Podcast o práci. Proto píšu. A proto vzniká i Dopis o práci.</p>
+        <p>Protože věřím, že když lépe rozumíme světu práce, můžeme dělat lepší rozhodnutí.</p>
+        <a href="#kontakt" class="about__link">Napište mi →</a>
       </div>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section class="section section--dark" id="kontakt">
+  <section class="section section--light" id="kontakt">
     <div class="container">
-      <div class="section__header section__header--light">
-        <span class="section__tag section__tag--light">Kontakt</span>
-        <h2 class="section__title">Pojďme si promluvit</h2>
-        <p class="section__desc">Máte projekt, dotaz nebo jen chuť na&nbsp;kávu? Napište mi.</p>
-      </div>
-      <form class="contact-form" onsubmit="return false;">
-        <div class="contact-form__row">
-          <input type="text" placeholder="Vaše jméno" class="contact-form__input" />
-          <input type="email" placeholder="váš@email.cz" class="contact-form__input" />
+      <div class="contact-minimal">
+        <span class="section__tag">Kontakt</span>
+        <h2 class="section__title">Spojme se</h2>
+        <p class="contact-minimal__text">Máte otázku, hledáte nový směr, chcete spolupracovat nebo si jen popovídat o&nbsp;světě práce? Budu ráda, když se ozvete.</p>
+        <p class="contact-minimal__text contact-minimal__text--secondary">Vedle podcastu, článků a přednášek se občas věnuji i individuálním kariérním konzultacím. Pokud hledáte nový směr nebo chcete probrat svou kariéru, napište mi.</p>
+        <a href="mailto:korinkova.aneta@gmail.com" class="contact-minimal__email">korinkova.aneta@gmail.com</a>
+        <div class="contact-minimal__social">
+          <a href="https://www.linkedin.com/in/anetakorinkova/" target="_blank" rel="noopener noreferrer" class="contact-minimal__social-link">LinkedIn</a>
+          <span class="contact-minimal__social-sep">·</span>
+          <a href="https://www.instagram.com/aneta_o_praci" target="_blank" rel="noopener noreferrer" class="contact-minimal__social-link">Instagram</a>
         </div>
-        <textarea placeholder="Vaše zpráva…" class="contact-form__textarea" rows="5"></textarea>
-        <button type="submit" class="btn btn--primary">Odeslat zprávu</button>
-      </form>
-      <div class="social">
-        <a href="#" class="social__link" aria-label="Facebook">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-        </a>
-        <a href="#" class="social__link" aria-label="LinkedIn">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        </a>
-        <a href="#" class="social__link" aria-label="Instagram">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="#211c41"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="#211c41" stroke-width="2" stroke-linecap="round"/></svg>
-        </a>
       </div>
     </div>
   </section>
@@ -287,8 +280,8 @@
     <div class="container footer__inner">
       <p class="footer__copy">© 2026 Aneta Kořínková. Všechna práva vyhrazena.</p>
       <nav class="footer__nav">
-        <a href="#">Ochrana osobních údajů</a>
-        <a href="#">Cookies</a>
+        <a href="privacy.html">Ochrana osobních údajů</a>
+        <a href="cookies.html">Cookies</a>
       </nav>
     </div>
   </footer>
@@ -337,43 +330,35 @@
         }
 
         let episodesHtml = '';
-        const limit = Math.min(3, items.length); // Poslední 3 epizody
+        const limit = Math.min(3, items.length);
 
         for (let i = 0; i < limit; i++) {
           const item = items[i];
-          const episodeId = 'ep-' + i;
+          let title = item.getElementsByTagName('title')[0]?.textContent || 'Bez názvu';
 
-          const title = item.getElementsByTagName('title')[0]?.textContent || 'Bez názvu';
-          const description = item.getElementsByTagName('description')[0]?.textContent || '';
-          const link = item.getElementsByTagName('link')[0]?.textContent || '#';
-
-          // Hledej iTunes image
           const itunesImage = item.getElementsByTagNameNS('http://www.itunes.com/dtds/podcast-1.0.dtd', 'image')[0];
           const imageUrl = itunesImage?.getAttribute('href') || '';
 
-          // Vyčisti popis (odstraň HTML tagy)
-          const cleanDescription = description
-            .replace(/<[^>]*>/g, '')
-            .replace(/&nbsp;/g, ' ')
-            .replace(/&amp;/g, '&')
-            .replace(/&quot;/g, '"')
-            .replace(/&#39;/g, "'")
-            .replace(/&lt;/g, '<')
-            .replace(/&gt;/g, '>')
-            .trim();
+          // Odstraň číslo epizody z názvu pokud už tam je (RSS feed jej obsahuje)
+          title = title.replace(/^\d+\.\s+/, '');
 
-          const shortDescription = cleanDescription.substring(0, 150).trim();
-          const hasMore = cleanDescription.length > 150;
-          const restDescription = hasMore ? cleanDescription.substring(150).trim() : '';
+          // Vytvoř slug z názvu
+          const slug = title
+            .toLowerCase()
+            .replace(/[^a-záíéěščřžýů0-9\s-]/g, '')
+            .replace(/\s+/g, '-')
+            .substring(0, 50)
+            .replace(/-+$/, '');
+
+          // Číslo epizody (stejně jako v podcast.html)
+          const episodeNumber = items.length - i;
+          const episodeUrl = `episode.html?num=${episodeNumber}&slug=${slug}`;
 
           episodesHtml += `
             <div class="episode">
-              ${imageUrl ? `<div class="episode__image"><img src="${imageUrl}" alt="${title}" loading="lazy"></div>` : ''}
-              <div class="episode__info">
-                <h3 class="episode__title">${title}</h3>
-                <p class="episode__desc">${shortDescription}${hasMore ? ' <button class="episode__read-more" onclick="toggleEpisodeText(\'' + episodeId + '\')">...více</button><span id="' + episodeId + '" class="episode__full-text"> ' + restDescription + '</span>' : ''}</p>
-                <a href="${link}" target="_blank" rel="noopener noreferrer" class="episode__play">▶ Poslechnout</a>
-              </div>
+              ${imageUrl ? `<div class="episode__image"><img src="${imageUrl}" alt="${title}" loading="lazy" decoding="async"></div>` : ''}
+              <h3 class="episode__title">${title}</h3>
+              <a href="${episodeUrl}" class="episode__link">Poslechnout epizodu →</a>
             </div>
           `;
         }

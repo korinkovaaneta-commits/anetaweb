@@ -6,109 +6,176 @@
   <title>Podcast o práci – Aneta Kořínková</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=2025" />
+
+  <!-- Cookie consent management -->
+  <script src="cookies.js"></script>
+  <!-- Google Analytics 4 (respects cookie consent) -->
+  <script src="analytics.js"></script>
   <style>
-    .podcast-header { background: #0A0A0A; color: #FFFFFF; padding: 4rem 0; margin-bottom: 3rem; }
-    .podcast-header h1 { font-size: 2.5rem; line-height: 1.2; margin-bottom: 1rem; font-weight: 500; }
-    .podcast-description { color: rgba(255,255,255,.7); margin-top: 1rem; }
+    .podcast-hero {
+      background: var(--bg);
+      padding: 1.5rem 0 2rem;
+      margin-bottom: 0;
+    }
 
-    .episodes-list { display: flex; flex-direction: column; gap: 2rem; }
+    .podcast-hero__back {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--primary);
+      text-decoration: none;
+      margin-bottom: 1rem;
+      transition: var(--transition);
+    }
 
-    .episode-card {
+    .podcast-hero__back:hover {
+      color: var(--accent);
+    }
+
+    .podcast-hero h1 {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+      line-height: 1.1;
+    }
+
+    .podcast-hero__desc {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #666666;
+      max-width: 600px;
+      margin-bottom: 1rem;
+    }
+
+    .podcast-hero__accent {
+      width: 90px;
+      height: 2px;
+      background-color: var(--accent);
+      margin: 0;
+    }
+
+    .podcast-hero + .section {
+      padding-top: 1rem;
+      padding-bottom: 0;
+    }
+
+    .podcast-container {
+      padding: 0;
+    }
+
+    .episodes-grid {
       display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 2rem;
-      align-items: start;
-      padding: 2rem;
-      background: #FFFFFF;
-      border: 1px solid #F0F0F0;
-      border-radius: 4px;
-      transition: all 0.25s ease;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      padding: 0;
     }
 
-    .episode-card:hover {
-      border-color: #1C3F6E;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    .episode {
+      display: flex;
+      flex-direction: column;
+      transition: all 0.2s ease;
     }
 
-    .episode-image {
-      width: 220px;
-      height: 220px;
-      border-radius: 4px;
-      overflow: hidden;
+    .episode:hover {
+      transform: scale(1.01);
+    }
+
+    .episode:hover .episode__link {
+      transform: translateX(3px);
+    }
+
+    .episode__image {
+      width: 100%;
+      aspect-ratio: 1;
       background: #F8F8F8;
+      border-radius: 0;
+      overflow: hidden;
+      margin-bottom: 1.25rem;
+      transition: all 0.2s ease;
     }
 
-    .episode-image img {
+    .episode__image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
     }
 
-    .episode-content { }
+    .episode__meta {
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
 
-    .episode-date { font-size: 13px; color: #888888; margin-bottom: 0.75rem; }
-    .episode-title { font-size: 1.2rem; font-weight: 500; color: #0A0A0A; margin-bottom: 0.75rem; line-height: 1.3; }
-    .episode-description { color: #555555; font-size: 14px; line-height: 1.7; margin-bottom: 1.5rem; }
+    .episode__title {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.35;
+      margin-bottom: 0.6rem;
+    }
 
-    .episode-link {
-      display: inline-block;
-      padding: 0.5rem 1rem;
-      background: #0A0A0A;
-      color: #FFFFFF;
-      border-radius: 4px;
+    .episode__date {
+      font-size: 0.8rem;
+      color: #888888;
+      margin-bottom: 1rem;
+      font-weight: 400;
+    }
+
+    .episode__link {
+      font-family: var(--font-heading);
       font-size: 13px;
-      font-weight: 500;
+      font-weight: 600;
+      color: var(--primary);
       text-decoration: none;
-      transition: all 0.25s ease;
+      transition: all 0.2s ease;
+      display: inline-block;
+      width: fit-content;
     }
 
-    .episode-link:hover {
-      background: #1C3F6E;
+    .episode__link:hover {
+      color: var(--accent);
+      transform: translateX(3px);
     }
 
-    .episode-read-more {
-      color: #1C3F6E;
-      cursor: pointer;
+    .loading {
+      text-align: center;
+      padding: 3rem 0;
+      color: #888888;
+      font-size: 1rem;
+    }
+
+    .error {
+      text-align: center;
+      padding: 3rem 0;
+      color: var(--accent);
       font-weight: 500;
-      background: none;
-      border: none;
-      padding: 0;
-      font-size: 14px;
-      text-decoration: none;
     }
 
-    .episode-read-more:hover {
-      text-decoration: underline;
+    @media (max-width: 1024px) {
+      .episodes-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
     }
-
-    .episode-full-text {
-      display: none;
-    }
-
-    .episode-full-text.show {
-      display: inline;
-    }
-
-    .back-link { display: inline-block; margin-bottom: 2rem; color: #FFFFFF; font-weight: 400; font-size: 14px; opacity: 0.8; text-decoration: underline; }
-    .back-link:hover { opacity: 1; }
-
-    .loading { text-align: center; padding: 3rem 0; color: #888888; }
-    .error { text-align: center; padding: 3rem 0; color: #C0365A; font-weight: 500; }
 
     @media (max-width: 768px) {
-      .episode-card {
+      .episodes-grid {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 2rem;
       }
 
-      .episode-image {
-        width: 100%;
-        height: auto;
-      }
-
-      .podcast-header h1 {
+      .podcast-hero h1 {
         font-size: 1.75rem;
       }
     }
@@ -125,7 +192,6 @@
         <li><a href="articles.html" class="nav__link">Články</a></li>
         <li><a href="podcast.html" class="nav__link">Podcast</a></li>
         <li><a href="index.html#omne" class="nav__link">O mně</a></li>
-        <li><a href="index.html#kontakt" class="nav__link nav__link--cta">Kontakt</a></li>
       </ul>
       <button class="nav__burger" id="navBurger" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -133,20 +199,20 @@
     </nav>
   </header>
 
-  <!-- PODCAST HEADER -->
-  <section class="podcast-header">
+  <!-- PODCAST HERO -->
+  <section class="podcast-hero">
     <div class="container">
-      <a href="index.html" class="back-link">← Zpět na úvod</a>
+      <a href="index.html" class="podcast-hero__back">← Zpět na úvod</a>
       <h1>Podcast o práci</h1>
-      <p class="section__desc podcast-description">Rozhovory i solo epizody o práci, kariéře a životě. Protože jedno bez druhého stejně nejde.</p>
+      <p class="podcast-hero__desc">Rozhovory i solo epizody o práci, kariéře a životě. Protože jedno bez druhého stejně nejde.</p>
+      <div class="podcast-hero__accent"></div>
     </div>
   </section>
 
   <!-- EPISODES -->
-  <section class="section">
-    <div class="container">
-      <div id="debug-info" style="display: none; background: #f5f5f5; padding: 1rem; margin-bottom: 2rem; border-radius: 4px; font-size: 12px; color: #666; font-family: monospace; white-space: pre-wrap; word-break: break-all;"></div>
-      <div id="episodes-list" class="episodes-list">
+  <section class="section section--light">
+    <div class="container podcast-container">
+      <div id="episodes-grid" class="episodes-grid">
         <div class="loading">Načítám epizody...</div>
       </div>
     </div>
@@ -157,96 +223,59 @@
     <div class="container footer__inner">
       <p class="footer__copy">© 2026 Aneta Kořínková. Všechna práva vyhrazena.</p>
       <nav class="footer__nav">
-        <a href="#">Ochrana osobních údajů</a>
-        <a href="#">Cookies</a>
+        <a href="privacy.html">Ochrana osobních údajů</a>
+        <a href="cookies.html">Cookies</a>
       </nav>
     </div>
   </footer>
 
   <script src="script.js"></script>
   <script>
-    // Rozbalit/sbalit text epizody
-    function toggleEpisodeText(elementId) {
-      const element = document.getElementById(elementId);
-      const button = document.querySelector(`[onclick="toggleEpisodeText('${elementId}')"]`);
-      if (element) {
-        element.classList.toggle('show');
-        if (button) {
-          button.style.display = button.style.display === 'none' ? 'inline' : 'none';
-        }
-      }
-    }
-
-    // Dynamické načítání podcast epizod z RSS feed
     async function loadPodcastEpisodes() {
-      const container = document.getElementById('episodes-list');
-      const debugInfo = document.getElementById('debug-info');
+      const container = document.getElementById('episodes-grid');
       const rssUrl = 'https://feeds.libsyn.com/304163/podcastopraci';
-      const logs = [];
-
-      function log(msg) {
-        console.log(msg);
-        logs.push(msg);
-        debugInfo.textContent = logs.join('\n');
-        debugInfo.style.display = 'block';
-      }
 
       try {
-        log('1. Začínam načítat RSS feed...');
-        log('2. RSS URL: ' + rssUrl);
-
         const response = await fetch(rssUrl);
-        log('3. Response status: ' + response.status);
-
         if (!response.ok) {
-          throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+          throw new Error('Chyba při načítání podcastu');
         }
 
         const data = await response.text();
-        log('4. Data načtena, velikost: ' + data.length + ' bytes');
-
-        if (!data || data.length < 100) {
-          throw new Error('RSS feed je příliš malý nebo prázdný');
-        }
-
-        // Zkontroluj, jestli je to HTML (chyba) nebo XML
-        if (data.includes('<html') || data.includes('<!DOCTYPE html')) {
-          throw new Error('Proxy vrátil HTML namísto RSS (404 nebo chyba serveru)');
-        }
-
-        // Parse XML
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(data, 'text/xml');
-        log('5. XML parsován');
 
         const parseErrors = xmlDoc.getElementsByTagName('parsererror');
         if (parseErrors.length > 0) {
-          log('XML Parse Error: ' + parseErrors[0].textContent);
-          throw new Error('Chyba při parsování XML');
+          throw new Error('Chyba při parsování dat');
         }
 
         const items = xmlDoc.getElementsByTagName('item');
-        log('6. Nalezeno epizod: ' + items.length);
-
         if (items.length === 0) {
-          container.innerHTML = '<div class="error">Žádné epizody nenalezeny v RSS</div>';
+          container.innerHTML = '<div class="error">Žádné epizody nenalezeny</div>';
           return;
         }
 
         let episodesHtml = '';
+        let episodeNumber = items.length;
 
         for (let i = 0; i < items.length; i++) {
           const item = items[i];
-          const episodeId = 'ep-podcast-' + i;
-
-          const title = item.getElementsByTagName('title')[0]?.textContent || 'Bez názvu';
-          const description = item.getElementsByTagName('description')[0]?.textContent || '';
+          let title = item.getElementsByTagName('title')[0]?.textContent || 'Bez názvu';
           const pubDate = item.getElementsByTagName('pubDate')[0]?.textContent || '';
-          const link = item.getElementsByTagName('link')[0]?.textContent || '#';
-
-          // Hledej iTunes image
           const itunesImage = item.getElementsByTagNameNS('http://www.itunes.com/dtds/podcast-1.0.dtd', 'image')[0];
           const imageUrl = itunesImage?.getAttribute('href') || '';
+
+          // Odstraň číslo epizody z názvu pokud už tam je (RSS feed jej obsahuje)
+          title = title.replace(/^\d+\.\s+/, '');
+
+          // Vytvoř slug z názvu
+          const slug = title
+            .toLowerCase()
+            .replace(/[^a-záíéěščřžýů0-9\s-]/g, '')
+            .replace(/\s+/g, '-')
+            .substring(0, 50)
+            .replace(/-+$/, '');
 
           // Formátuj datum
           const dateObj = new Date(pubDate);
@@ -256,46 +285,28 @@
             day: 'numeric'
           });
 
-          // Vyčisti popis (odstraň HTML tagy)
-          const cleanDescription = description
-            .replace(/<[^>]*>/g, '')
-            .replace(/&nbsp;/g, ' ')
-            .replace(/&amp;/g, '&')
-            .replace(/&quot;/g, '"')
-            .replace(/&#39;/g, "'")
-            .replace(/&lt;/g, '<')
-            .replace(/&gt;/g, '>')
-            .trim();
-
-          const shortDescription = cleanDescription.substring(0, 250).trim();
-          const hasMore = cleanDescription.length > 250;
-          const restDescription = hasMore ? cleanDescription.substring(250).trim() : '';
+          const episodeUrl = `episode.html?num=${episodeNumber}&slug=${slug}`;
 
           episodesHtml += `
-            <div class="episode-card">
-              ${imageUrl ? `<div class="episode-image"><img src="${imageUrl}" alt="${title}" loading="lazy"></div>` : ''}
-              <div class="episode-content">
-                <div class="episode-date">📅 ${formattedDate}</div>
-                <h3 class="episode-title">${title}</h3>
-                <p class="episode-description">${shortDescription}${hasMore ? ' <button class="episode-read-more" onclick="toggleEpisodeText(\'' + episodeId + '\')">...více</button><span id="' + episodeId + '" class="episode-full-text"> ' + restDescription + '</span>' : ''}</p>
-                <a href="${link}" target="_blank" rel="noopener noreferrer" class="episode-link">▶ Poslechnout</a>
-              </div>
-            </div>
+            <article class="episode">
+              ${imageUrl ? `<div class="episode__image"><img src="${imageUrl}" alt="${title}" loading="lazy" decoding="async"></div>` : ''}
+              <h3 class="episode__title">${episodeNumber}. ${title}</h3>
+              <div class="episode__date">${formattedDate}</div>
+              <a href="${episodeUrl}" class="episode__link">Poslechnout epizodu →</a>
+            </article>
           `;
+
+          episodeNumber--;
         }
 
-        log('7. HTML vygenerován, zobrazuji...');
-        debugInfo.style.display = 'none';
         container.innerHTML = episodesHtml;
-        log('✓ Epizody úspěšně načteny!');
 
       } catch (error) {
-        log('❌ CHYBA: ' + error.message);
-        container.innerHTML = `<div class="error"><strong>Chyba:</strong> ${error.message}</div>`;
+        console.error('Chyba při načítání podcastů:', error);
+        container.innerHTML = `<div class="error">Nepodařilo se načíst epizody. Zkuste to později.</div>`;
       }
     }
 
-    // Načti epizody když se stránka nahraje
     document.addEventListener('DOMContentLoaded', loadPodcastEpisodes);
   </script>
 </body>

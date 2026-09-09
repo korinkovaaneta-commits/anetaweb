@@ -10,47 +10,194 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="article-covers.css" />
+  <link rel="stylesheet" href="style.css?v=2025" />
+
+  <!-- Cookie consent management -->
+  <script src="cookies.js"></script>
+  <!-- Google Analytics 4 (respects cookie consent) -->
+  <script src="analytics.js"></script>
   <style>
-    .article-card__image {
-      width: 100%;
-      height: 200px;
-      background: linear-gradient(135deg, #1C3F6E 0%, #C0365A 100%);
-      border-radius: 4px 4px 0 0;
-      display: flex;
+    .articles-hero {
+      background: var(--bg);
+      padding: 1.5rem 0 2rem;
+      margin-bottom: 0;
+    }
+
+    .articles-hero__back {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--primary);
+      text-decoration: none;
+      margin-bottom: 1rem;
+      transition: var(--transition);
+    }
+
+    .articles-hero__back:hover {
+      color: var(--accent);
+    }
+
+    .articles-hero h1 {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+      line-height: 1.1;
+    }
+
+    .articles-hero__desc {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #666666;
+      margin-bottom: 1rem;
+    }
+
+    .articles-hero__accent {
+      width: 90px;
+      height: 2px;
+      background-color: var(--accent);
+      margin: 0;
+    }
+
+    .articles-hero + .section {
+      padding-top: 0.8rem;
+      padding-bottom: 0;
+    }
+
+    .articles-container {
+      padding: 0;
+    }
+
+    .featured-article {
+      margin-bottom: 4rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .featured-article__date {
+      font-size: 0.8rem;
+      color: #888888;
+      margin-bottom: 0.5rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .featured-article__title {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    .featured-article__excerpt {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #444444;
+      margin-bottom: 2rem;
+    }
+
+    .featured-article__link {
+      font-family: var(--font-heading);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--primary);
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      font-size: 64px;
-      color: rgba(255,255,255,0.3);
-      overflow: hidden;
     }
 
-    .article-card__image svg {
-      width: 120px;
-      height: 120px;
-      opacity: 0.8;
+    .featured-article__link:hover {
+      color: var(--accent);
+      transform: translateX(4px);
     }
 
-    .article-card {
-      overflow: hidden;
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem 2.5rem;
+    }
+
+    .article-item {
       display: flex;
       flex-direction: column;
+      transition: all 0.2s ease;
     }
-  </style>
 
-    .articles-header { background: #0A0A0A; color: #FFFFFF; padding: 4rem 0; margin-bottom: 3rem; }
-    .articles-header h1 { font-family: var(--font-serif); font-size: 2.5rem; line-height: 1.2; margin-bottom: 1rem; }
-    .articles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem; }
-    .article-card { background: #FFFFFF; border-radius: var(--radius-lg); padding: 2rem; box-shadow: var(--shadow); display: flex; flex-direction: column; }
-    .article-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); transition: var(--transition); }
-    .article-card__meta { font-size: .8rem; color: #888888; margin-bottom: 1rem; display: flex; gap: 1rem; }
-    .article-card__title { font-family: var(--font-serif); font-size: 1.3rem; color: #0A0A0A; margin-bottom: .5rem; line-height: 1.3; }
-    .article-card__excerpt { color: #888888; font-size: .95rem; flex: 1; margin-bottom: 1.25rem; }
-    .article-card__link { color: #1C3F6E; font-weight: 600; transition: var(--transition); }
-    .article-card__link:hover { color: #1C3F6E; }
-    .back-link { display: inline-block; margin-bottom: 2rem; color: #1C3F6E; font-weight: 600; }
-    .back-link:hover { color: #1C3F6E; }
+    .article-item:hover .article-item__title {
+      color: var(--accent);
+    }
+
+    .article-item:hover .article-item__link {
+      transform: translateX(4px);
+    }
+
+    .article-item__date {
+      font-size: 0.75rem;
+      color: #999999;
+      margin-bottom: 0.6rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    .article-item__title {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.35;
+      margin-bottom: 0.8rem;
+      transition: color 0.2s ease;
+    }
+
+    .article-item__excerpt {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #666666;
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+
+    .article-item__link {
+      font-family: var(--font-heading);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--primary);
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-block;
+      width: fit-content;
+    }
+
+    .article-item__link:hover {
+      color: var(--accent);
+      transform: translateX(3px);
+    }
+
+    @media (max-width: 768px) {
+      .articles-hero h1 {
+        font-size: 1.75rem;
+      }
+
+      .featured-article__title {
+        font-size: 1.75rem;
+      }
+
+      .featured-article__excerpt {
+        font-size: 1rem;
+      }
+
+      .articles-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -72,133 +219,108 @@
     </nav>
   </header>
 
-  <!-- ARTICLES HEADER -->
-  <section class="articles-header">
+  <!-- ARTICLES HERO -->
+  <section class="articles-hero">
     <div class="container">
-      <a href="index.html" class="back-link">← Zpět na úvod</a>
-      <h1>Články</h1>
-      <p class="section__desc" style="color: rgba(255,255,255,.6); max-width: none;">Čtěte více o kariéře, vzdělávání a pracovním trhu. Inspirujte se a rozvíjejte se s námi.</p>
+      <a href="index.html" class="articles-hero__back">← Zpět na úvod</a>
+      <h1>Čtení o práci</h1>
+      <p class="articles-hero__desc">Jak ji skutečně zažíváme.</p>
+      <div class="articles-hero__accent"></div>
     </div>
   </section>
 
   <!-- ARTICLES -->
-  <section class="section">
-    <div class="container">
+  <section class="section section--light">
+    <div class="container articles-container">
+      
+      <!-- FEATURED ARTICLE -->
+      <article class="featured-article">
+        <div class="featured-article__date">16. února 2026</div>
+        <h2 class="featured-article__title">Když firmy čtou CV, ale nevidí člověka</h2>
+        <p class="featured-article__excerpt">Představte si, že jste se právě rozhodli, že se pustíte do hledání práce. Co uděláte jako první? Nejspíše si napíšete životopis. Ale máte někdy pocit, že je ten váš třeba úplně bez chyby, pěkně naformátován, a přesto se z něj nic nedělá?</p>
+        <a href="articles_content/article1.html" class="featured-article__link">Přečíst článek →</a>
+      </article>
+
+      <!-- ARTICLES GRID -->
       <div class="articles-grid">
-        <article class="article-card">
-          <div class="article-card__meta">
-            <span>📅 16. February 2026</span>
-          </div>
-          <h3 class="article-card__title">Když firmy čtou CV, ale nevidí člověka</h3>
-          <p class="article-card__excerpt"><em><span style="font-weight: 400;">Představte si, že jste se právě rozhodli, že se pustíte do hledání práce. Co uděláte jako první? Nejspíše si napíš...</p>
-          <a href="articles_content/article1.html" class="article-card__link">Přečíst článek →</a>
+        <article class="article-item">
+          <div class="article-item__date">11. srpna 2025</div>
+          <h3 class="article-item__title">Kalendář školního roku pro pracující rodiče</h3>
+          <p class="article-item__excerpt">Konec prázdnin se blíží. Těšíš se, že ti skončí vymýšlení prázdninového programu, příměstské tábory, dovážení, vyzvedávání?</p>
+          <a href="articles_content/article2.html" class="article-item__link">Přečíst článek →</a>
         </article>
 
-        <article class="article-card">
-          <div class="article-card__meta">
-            <span>📅 11. August 2025</span>
-          </div>
-          <h3 class="article-card__title">Kalendář školního roku pro pracující rodiče</h3>
-          <p class="article-card__excerpt"><p data-start="223" data-end="492"><em>Konec prázdnin se blíží. Těšíš se, že ti skončí vymýšlení prázdninového programu, příměstské tábory, dovážení, ...</p>
-          <a href="articles_content/article2.html" class="article-card__link">Přečíst článek →</a>
+        <article class="article-item">
+          <div class="article-item__date">7. května 2025</div>
+          <h3 class="article-item__title">Jak nezískat práci: 25 osvědčených tipů</h3>
+          <p class="article-item__excerpt">Nutí vás okolí pracovat, ale vy nechcete? Chcete si užívat sladké nicnedělání, ale přitom nevypadat úplně nápadně?</p>
+          <a href="articles_content/article3.html" class="article-item__link">Přečíst článek →</a>
         </article>
 
-        <article class="article-card">
-          <div class="article-card__meta">
-            <span>📅 07. May 2025</span>
-          </div>
-          <h3 class="article-card__title">Jak nezískat práci: 25 osvědčených tipů</h3>
-          <p class="article-card__excerpt"><em><span style="font-weight: 400;">Nutí vás okolí pracovat, ale vy nechcete? Chcete si užívat sladké nicnedělání, ale přitom nevypadat úplně nápadně?...</p>
-          <a href="articles_content/article3.html" class="article-card__link">Přečíst článek →</a>
+        <article class="article-item">
+          <div class="article-item__date">27. ledna 2025</div>
+          <h3 class="article-item__title">Soft skills budoucnosti: Na čem se vám vyplatí zapracovat?</h3>
+          <p class="article-item__excerpt">Máte někdy pocit, že novinek kolem vás přibývá tak rychle, že je nestíháte chytat? Bojíte se, že vám ujede vlak?</p>
+          <a href="articles_content/article4.html" class="article-item__link">Přečíst článek →</a>
         </article>
 
-        <article class="article-card">
-          <div class="article-card__meta">
-            <span>📅 27. January 2025</span>
-          </div>
-          <h3 class="article-card__title">Soft skills budoucnosti: Na čem se vám vyplatí zapracovat?</h3>
-          <p class="article-card__excerpt"><em><span style="font-weight: 400;">Máte někdy pocit, že novinek kolem vás přibývá tak rychle, že je nestíháte chytat? Bojíte se, že vám ujede vlak a ...</p>
-          <a href="articles_content/article4.html" class="article-card__link">Přečíst článek →</a>
+        <article class="article-item">
+          <div class="article-item__date">12. prosince 2024</div>
+          <h3 class="article-item__title">30 vět které můžete říct na pohovoru i v posteli</h3>
+          <p class="article-item__excerpt">Život je barevný a proto se nám může stát, že stejnou větu můžeme použít ve dvou naprosto odlišných situacích.</p>
+          <a href="articles_content/article5.html" class="article-item__link">Přečíst článek →</a>
         </article>
 
-        <article class="article-card">
-          <div class="article-card__meta">
-            <span>📅 12. December 2024</span>
-          </div>
-          <h3 class="article-card__title">30 vět které můžete říct na pohovoru i v posteli</h3>
-          <p class="article-card__excerpt"><p class="p1"><em>Život je barevný a proto se nám může stát, že stejnou větu můžeme použít ve dvou naprosto odlišných situacích. Třeba na pracovním po...</p>
-          <a href="articles_content/article5.html" class="article-card__link">Přečíst článek →</a>
+        <article class="article-item">
+          <div class="article-item__date">5. listopadu 2024</div>
+          <h3 class="article-item__title">Jak využívat sociální sítě k profesnímu růstu</h3>
+          <p class="article-item__excerpt">Sociální sítě se staly součástí našich každodenních životů. Někdy na nich bezmyšlenkovitě brouzdáme, někdy hledáme.</p>
+          <a href="articles_content/article6.html" class="article-item__link">Přečíst článek →</a>
         </article>
 
-        <article class="article-card">
-          <div class="article-card__meta">
-            <span>📅 05. November 2024</span>
-          </div>
-          <h3 class="article-card__title">Jak využívat sociální sítě k profesnímu růstu</h3>
-          <p class="article-card__excerpt"><em><span style="font-weight: 400;">Sociální sítě se staly součástí našich každodenních životů. Někdy na nich bezmyšlenkovitě brouzdáme, nekdy hledáme...</p>
-          <a href="articles_content/article6.html" class="article-card__link">Přečíst článek →</a>
+        <article class="article-item">
+          <div class="article-item__date">26. září 2024</div>
+          <h3 class="article-item__title">Jak budovat odolnost: Zvládání neúspěchů a odmítnutí</h3>
+          <p class="article-item__excerpt">Neúspěch a odmítnutí jsou přirozenou součástí kariéry každého člověka. Jak se s nimi vypořádat konstruktivně?</p>
+          <a href="articles_content/article7.html" class="article-item__link">Přečíst článek →</a>
         </article>
 
-        <article class="article-card">
-          <div class="article-card__meta">
-            <span>📅 26. September 2024</span>
-          </div>
-          <h3 class="article-card__title">Jak budovat odolnost: Zvládání neúspěchů a odmítnutí v kariéře i osobním životě</h3>
-          <p class="article-card__excerpt">[et_pb_section admin_label="section"]
-			[et_pb_row admin_label="row"]
-				[et_pb_column type="4_4"][et_pb_text admin_label="Text"]<i><span style="fon...</p>
-          <a href="articles_content/article7.html" class="article-card__link">Přečíst článek →</a>
+        <article class="article-item">
+          <div class="article-item__date">8. srpna 2024</div>
+          <h3 class="article-item__title">Data z pracovního trhu - červenec 2024</h3>
+          <p class="article-item__excerpt">Český pracovní trh prochází významnými změnami a čelí různým výzvám. Jaké trendy vidíme v datech?</p>
+          <a href="articles_content/article8.html" class="article-item__link">Přečíst článek →</a>
         </article>
 
-        <article class="article-card">
-          <div class="article-card__meta">
-            <span>📅 08. August 2024</span>
-          </div>
-          <h3 class="article-card__title">Data z pracovního trhu - červenec 2024</h3>
-          <p class="article-card__excerpt"><em>Český pracovní trh prochází významnými změnami a čelí různým výzvám. V tomto článku si můžete opět přečíst hlavní body, které pravidelně prezentuj...</p>
-          <a href="articles_content/article8.html" class="article-card__link">Přečíst článek →</a>
+        <article class="article-item">
+          <div class="article-item__date">17. června 2024</div>
+          <h3 class="article-item__title">Prázdninový průvodce pro pracující rodiče</h3>
+          <p class="article-item__excerpt">Prázdniny s dětmi mohou být výzvou. Jak si je naplánovat, aby si všichni odpočinuli a užili si je?</p>
+          <a href="articles_content/article9.html" class="article-item__link">Přečíst článek →</a>
         </article>
 
-        <article class="article-card">
-          <div class="article-card__meta">
-            <span>📅 17. June 2024</span>
-          </div>
-          <h3 class="article-card__title">Prázdninový průvodce pro pracující rodiče</h3>
-          <p class="article-card__excerpt"><div class="w-full text-token-text-primary" dir="auto" data-testid="conversation-turn-9" data-scroll-anchor="false">
-<div class="py-2 juice:py-[18px] ...</p>
-          <a href="articles_content/article9.html" class="article-card__link">Přečíst článek →</a>
+        <article class="article-item">
+          <div class="article-item__date">28. března 2024</div>
+          <h3 class="article-item__title">15 překvapujících faktů o pracujících maminkách</h3>
+          <p class="article-item__excerpt">Jsou mezi námi. Vypadají jako ostatní lidé. Někdy je na první pohled nepoznáte, jindy víte hned.</p>
+          <a href="articles_content/article10.html" class="article-item__link">Přečíst článek →</a>
         </article>
 
-        <article class="article-card">
-          <div class="article-card__meta">
-            <span>📅 28. March 2024</span>
-          </div>
-          <h3 class="article-card__title">15 překvapujících faktů, které jste možná nevěděli o pracujících maminkách</h3>
-          <p class="article-card__excerpt"><em><span style="font-weight: 400;">Jsou mezi námi. Vypadají jako ostatní lidé. Někdy je na první pohled nepoznáte, jindy víte hned. Možná jste o nich...</p>
-          <a href="articles_content/article10.html" class="article-card__link">Přečíst článek →</a>
+        <article class="article-item">
+          <div class="article-item__date">15. února 2024</div>
+          <h3 class="article-item__title">Připravte si svůj Elevator Pitch</h3>
+          <p class="article-item__excerpt">Setkání se člověkem z vysněné firmy je příležitost. Máte jen minutu. Co mu řeknete?</p>
+          <a href="articles_content/article11.html" class="article-item__link">Přečíst článek →</a>
         </article>
 
-        <article class="article-card">
-          <div class="article-card__meta">
-            <span>📅 15. February 2024</span>
-          </div>
-          <h3 class="article-card__title">Připravte si svůj Elevator Pitch</h3>
-          <p class="article-card__excerpt"><i><span style="font-weight: 400;">Představte si, že jste se ocitli na akci, kde jste potkali člověka, který nabírá lidi do vaší vysněné firmy. A zrov...</p>
-          <a href="articles_content/article11.html" class="article-card__link">Přečíst článek →</a>
+        <article class="article-item">
+          <div class="article-item__date">11. prosince 2023</div>
+          <h3 class="article-item__title">Jak si vyjednat práci na zkrácený úvazek</h3>
+          <p class="article-item__excerpt">Zkrácený úvazek je zvláštní formou zaměstnání. Jak ji správně vyjednat a co na to zaměstnavatel?</p>
+          <a href="articles_content/article12.html" class="article-item__link">Přečíst článek →</a>
         </article>
-
-        <article class="article-card">
-          <div class="article-card__meta">
-            <span>📅 11. December 2023</span>
-          </div>
-          <h3 class="article-card__title">Jak si vyjednat práci na zkrácený úvazek</h3>
-          <p class="article-card__excerpt">[et_pb_section admin_label="section"]
-			[et_pb_row admin_label="row"]
-				[et_pb_column type="4_4"][et_pb_text admin_label="Text"]<em><span style="fo...</p>
-          <a href="articles_content/article12.html" class="article-card__link">Přečíst článek →</a>
-        </article>
-
       </div>
+
     </div>
   </section>
 
@@ -207,13 +329,12 @@
     <div class="container footer__inner">
       <p class="footer__copy">© 2026 Aneta Kořínková. Všechna práva vyhrazena.</p>
       <nav class="footer__nav">
-        <a href="#">Ochrana osobních údajů</a>
-        <a href="#">Cookies</a>
+        <a href="privacy.html">Ochrana osobních údajů</a>
+        <a href="cookies.html">Cookies</a>
       </nav>
     </div>
   </footer>
 
   <script src="script.js"></script>
-  <script src="article-covers.js"></script>
 </body>
 </html>
