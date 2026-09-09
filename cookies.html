@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cookies – Aneta Kořínková</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=2025" />
+
+  <!-- Cookie consent management -->
+  <script src="cookies.js"></script>
+  <!-- Google Analytics 4 (respects cookie consent) -->
+  <script src="analytics.js"></script>
+
+  <style>
+    .legal-content {
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.8;
+      color: #333333;
+    }
+
+    .legal-hero {
+      padding: 2rem 1.5rem 0;
+      background: white;
+    }
+
+    .legal-hero h1 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #1A1A1A;
+      margin: 0 0 1.5rem 0;
+      line-height: 1.2;
+    }
+
+    .legal-section {
+      padding: 0 1.5rem 3rem 1.5rem;
+      background: white;
+    }
+
+    .legal-section h2 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #1A1A1A;
+      margin: 2rem 0 1rem 0;
+      padding-top: 0;
+    }
+
+    .legal-section h2:first-child {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    .legal-section p {
+      margin: 1rem 0;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .legal-section ul {
+      margin: 1.5rem 0;
+      padding-left: 1.5rem;
+      list-style: none;
+    }
+
+    .legal-section li {
+      margin: 0.75rem 0;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .legal-section li:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #A63D5E;
+    }
+
+    .legal-section a {
+      color: #243B6B;
+      text-decoration: underline;
+      transition: color 0.2s ease;
+    }
+
+    .legal-section a:hover {
+      color: #A63D5E;
+    }
+
+    .consent-button {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.5rem 1.2rem;
+      background-color: transparent;
+      color: #243B6B;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: 1px solid #243B6B;
+      border-radius: 0;
+      cursor: pointer;
+      transition: color 0.2s ease, border-color 0.2s ease;
+      text-decoration: none;
+    }
+
+    .consent-button:hover {
+      color: #A63D5E;
+      border-color: #A63D5E;
+    }
+
+    .legal-updated {
+      font-size: 0.9rem;
+      color: #888888;
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #F0F0F0;
+    }
+
+    @media (max-width: 768px) {
+      .legal-hero {
+        padding: 1.5rem 1rem 1rem;
+      }
+
+      .legal-hero h1 {
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+      }
+
+      .legal-section {
+        padding: 0 1rem 2rem 1rem;
+      }
+
+      .legal-section h2 {
+        font-size: 1.1rem;
+        margin: 1.75rem 0 0.75rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="index.html" class="nav__logo">Aneta Kořínková</a>
+      <ul class="nav__list" id="navList">
+        <li><a href="index.html" class="nav__link">Úvod</a></li>
+        <li><a href="articles.html" class="nav__link">Články</a></li>
+        <li><a href="podcast.html" class="nav__link">Podcast</a></li>
+        <li><a href="index.html#omne" class="nav__link">O mně</a></li>
+      </ul>
+      <button class="nav__burger" id="navBurger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="legal-hero">
+    <div class="container">
+      <h1>Cookies</h1>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="legal-section">
+    <div class="container legal-content">
+      <p>Tento web používá pouze nezbytné technologie pro svůj provoz a po vašem souhlasu také analytické cookies.</p>
+
+      <h2>Analytické cookies</h2>
+      <p>Google Analytics nám pomáhá porozumět tomu, jak návštěvníci web používají. Spouští se pouze tehdy, pokud jste jí dali souhlas. Odmítnutí analytických cookies nijak neomezuje používání webu.</p>
+      <p>Doba uchování dat na úrovni uživatele a událostí je v Google Analytics nastavena na 14 měsíců.</p>
+
+      <h2>Vaše volba</h2>
+      <p id="consent-display">
+        Dosud jste se nerozhodli. Při příští návštěvě se vám zobrazí formulář pro volbu.
+      </p>
+
+      <button class="consent-button" onclick="CookieConsent.clearConsent(); CookieConsent.initConsentBanner(); return false">Změnit nastavení cookies</button>
+
+      <h2>Další informace</h2>
+      <p>Více o zpracování vašich osobních údajů na tomto webu najdete na stránce <a href="privacy.html">Ochrana osobních údajů</a>.</p>
+
+      <p class="legal-updated">Poslední aktualizace: srpen 2026</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__copy">© 2026 Aneta Kořínková. Všechna práva vyhrazena.</p>
+      <nav class="footer__nav">
+        <a href="privacy.html">Ochrana osobních údajů</a>
+        <a href="cookies.html">Cookies</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Display current consent status
+    function displayConsentStatus() {
+      const consentDisplay = document.getElementById('consent-display');
+      const consent = CookieConsent.getConsent();
+
+      if (consent && consent.analytics !== undefined) {
+        const status = consent.analytics ? 'povoleny' : 'odmítnuty';
+        const message = consent.analytics
+          ? 'Analytické cookies jsou <strong>povoleny</strong>. Google Analytics sbírá údaje o vaší návštěvě.'
+          : 'Analytické cookies jsou <strong>odmítnuty</strong>. Google Analytics nesbírá žádné údaje.';
+        consentDisplay.innerHTML = message;
+      } else {
+        consentDisplay.innerHTML = 'Dosud jste se nerozhodli. Při příští návštěvě se vám zobrazí formulář pro volbu.';
+      }
+    }
+
+    // Display on page load
+    document.addEventListener('DOMContentLoaded', displayConsentStatus);
+  </script>
+
+</body>
+</html>

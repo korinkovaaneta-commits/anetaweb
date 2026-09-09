@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Epizoda – Podcast o práci</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=2025" />
+
+  <!-- Cookie consent management -->
+  <script src="cookies.js"></script>
+  <!-- Google Analytics 4 (respects cookie consent) -->
+  <script src="analytics.js"></script>
+  <style>
+    .episode-detail {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .episode-detail__back {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--primary);
+      text-decoration: none;
+      margin-bottom: 3rem;
+      margin-top: 2rem;
+      transition: var(--transition);
+    }
+
+    .episode-detail__back:hover {
+      color: var(--accent);
+    }
+
+    .episode-detail__header {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 3rem;
+      margin-bottom: 4rem;
+      align-items: start;
+    }
+
+    .episode-detail__cover {
+      width: 100%;
+      aspect-ratio: 1;
+      background: #F8F8F8;
+      border-radius: 0;
+      overflow: hidden;
+    }
+
+    .episode-detail__cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .episode-detail__meta {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .episode-detail__number {
+      font-family: var(--font-heading);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .episode-detail__title {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    .episode-detail__date {
+      font-size: 0.95rem;
+      color: #555555;
+      margin-bottom: 2rem;
+    }
+
+    .episode-detail__player {
+      margin-top: 2rem;
+    }
+
+    .audio-player {
+      margin-bottom: 2rem;
+    }
+
+    .audio-player audio {
+      width: 100%;
+      height: 40px;
+      border-radius: 0;
+    }
+
+    .episode-detail__platforms {
+      font-size: 0.95rem;
+      color: #555555;
+      margin-top: 1.5rem;
+    }
+
+    .episode-detail__platforms a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .episode-detail__platforms a:hover {
+      color: var(--accent);
+    }
+
+    .episode-detail__description {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #555555;
+      margin-top: 3rem;
+      white-space: pre-wrap;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 4rem 0;
+      color: #888888;
+    }
+
+    .error {
+      text-align: center;
+      padding: 4rem 0;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .episode-detail__header {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .episode-detail__cover {
+        max-width: 250px;
+      }
+
+      .episode-detail__title {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="index.html" class="nav__logo">Aneta Kořínková</a>
+      <ul class="nav__list" id="navList">
+        <li><a href="index.html" class="nav__link">Úvod</a></li>
+        <li><a href="articles.html" class="nav__link">Články</a></li>
+        <li><a href="podcast.html" class="nav__link">Podcast</a></li>
+        <li><a href="index.html#omne" class="nav__link">O mně</a></li>
+      </ul>
+      <button class="nav__burger" id="navBurger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- EPISODE DETAIL -->
+  <section class="section section--light">
+    <div class="container">
+      <a href="podcast.html" class="episode-detail__back">← Všechny epizody</a>
+
+      <div id="episode-container">
+        <div class="loading">Načítám epizodu...</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__copy">© 2026 Aneta Kořínková. Všechna práva vyhrazena.</p>
+      <nav class="footer__nav">
+        <a href="privacy.html">Ochrana osobních údajů</a>
+        <a href="cookies.html">Cookies</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    async function loadEpisodeDetail() {
+      const container = document.getElementById('episode-container');
+      const params = new URLSearchParams(window.location.search);
+      const episodeNum = parseInt(params.get('num'));
+
+      if (!episodeNum) {
+        container.innerHTML = '<div class="error">Epizoda nenalezena</div>';
+        return;
+      }
+
+      const rssUrl = 'https://feeds.libsyn.com/304163/podcastopraci';
+
+      try {
+        const response = await fetch(rssUrl);
+        if (!response.ok) throw new Error('Chyba při načítání');
+
+        const data = await response.text();
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(data, 'text/xml');
+
+        const items = xmlDoc.getElementsByTagName('item');
+        let episodeIndex = -1;
+        let targetItem = null;
+
+        for (let i = 0; i < items.length; i++) {
+          const itemNum = items.length - i;
+          if (itemNum === episodeNum) {
+            targetItem = items[i];
+            episodeIndex = i;
+            break;
+          }
+        }
+
+        if (!targetItem) {
+          container.innerHTML = '<div class="error">Epizoda nenalezena</div>';
+          return;
+        }
+
+        let title = targetItem.getElementsByTagName('title')[0]?.textContent || 'Bez názvu';
+        // Odstraň číslo epizody z názvu pokud už tam je (RSS feed jej obsahuje)
+        title = title.replace(/^\d+\.\s+/, '');
+        const description = targetItem.getElementsByTagName('description')[0]?.textContent || '';
+        const pubDate = targetItem.getElementsByTagName('pubDate')[0]?.textContent || '';
+        const enclosure = targetItem.getElementsByTagName('enclosure')[0];
+        const audioUrl = enclosure?.getAttribute('url') || '';
+        const itunesImage = targetItem.getElementsByTagNameNS('http://www.itunes.com/dtds/podcast-1.0.dtd', 'image')[0];
+        const imageUrl = itunesImage?.getAttribute('href') || '';
+
+        // Formátuj datum
+        const dateObj = new Date(pubDate);
+        const formattedDate = dateObj.toLocaleDateString('cs-CZ', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        });
+
+        // Vyčisti popis
+        const cleanDescription = description
+          .replace(/<[^>]*>/g, '')
+          .replace(/&nbsp;/g, ' ')
+          .replace(/&amp;/g, '&')
+          .replace(/&quot;/g, '"')
+          .replace(/&#39;/g, "'")
+          .replace(/&lt;/g, '<')
+          .replace(/&gt;/g, '>')
+          .trim();
+
+        // Urči stránku v title
+        document.title = title + ' – Podcast o práci';
+
+        // Sestav HTML
+        let html = `
+          <div class="episode-detail">
+            <div class="episode-detail__header">
+              ${imageUrl ? `
+                <div class="episode-detail__cover">
+                  <img src="${imageUrl}" alt="${title}" />
+                </div>
+              ` : ''}
+              <div class="episode-detail__meta">
+                <div class="episode-detail__number">Epizoda ${episodeNum}</div>
+                <h1 class="episode-detail__title">${title}</h1>
+                <div class="episode-detail__date">${formattedDate}</div>
+                <div class="episode-detail__player">
+        `;
+
+        if (audioUrl) {
+          html += `
+                  <div class="audio-player">
+                    <audio controls>
+                      <source src="${audioUrl}" type="audio/mpeg">
+                      Váš prohlížeč nepodporuje HTML5 audio element.
+                    </audio>
+                  </div>
+                  <div class="episode-detail__platforms">
+                    Poslechnout také na <a href="#" onclick="return false">Spotify</a> · <a href="#" onclick="return false">Apple Podcasts</a>
+                  </div>
+          `;
+        }
+
+        html += `
+                </div>
+              </div>
+            </div>
+            ${cleanDescription ? `<div class="episode-detail__description">${cleanDescription}</div>` : ''}
+          </div>
+        `;
+
+        container.innerHTML = html;
+
+      } catch (error) {
+        container.innerHTML = '<div class="error">Nepodařilo se načíst epizodu</div>';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', loadEpisodeDetail);
+  </script>
+</body>
+</html>
