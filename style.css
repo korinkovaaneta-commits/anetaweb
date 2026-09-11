@@ -402,6 +402,16 @@ strong {
   .nav__burger { display: flex; }
   .nav__list { display: none; }
   .nav { padding: 1rem 1.5rem; }
+  .nav:has(.nav__list.open) { flex-wrap: wrap; }
+  .nav__list.open {
+    display: flex;
+    order: 3;
+    flex-basis: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding-top: 1.5rem;
+  }
 }
 
 /* ===========================
@@ -501,6 +511,8 @@ img.hero__avatar {
   }
 
   .hero__text { padding-right: 0; }
+
+  .hero__actions { flex-wrap: wrap; }
 
   .hero__avatar {
     aspect-ratio: 1;
@@ -610,6 +622,30 @@ img.hero__avatar {
 @media (max-width: 768px) {
   .cards { gap: 1.5rem; }
   .card { padding: 2rem; }
+
+  #clanky .section__title--main {
+    font-size: clamp(2.8rem, 12vw, 3.2rem);
+  }
+
+  #clanky .section__header--articles {
+    margin-bottom: 1.5rem;
+  }
+
+  #clanky .cards {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 2.5rem !important;
+    margin-top: 0;
+  }
+
+  #clanky .card__inner {
+    padding: 0.75rem 0;
+  }
+
+  #clanky .card__excerpt {
+    max-width: 38ch;
+    line-height: 1.5;
+    flex-grow: 0;
+  }
 }
 
 /* ===========================
@@ -883,14 +919,75 @@ img.hero__avatar {
 =========================== */
 .newsletter {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 4rem;
   align-items: center;
   padding: 3rem;
   background: var(--white);
-  border-radius: var(--radius);
+  border-radius: 4px;
   border: 1px solid #F0F0F0;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  box-shadow: none;
+}
+
+/* Visual overrides only; Forendors markup and submission remain unchanged. */
+.newsletter #forendorsEmbedContainer {
+  font-family: var(--font-body);
+  width: 100% !important;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.newsletter #forendorsEmbedForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.newsletter #forendorsEmbedContainer .iw {
+  width: 100%;
+  min-width: 0;
+}
+
+.newsletter #forendorsEmbedContainer input[type=email] {
+  min-width: 0;
+  font-family: var(--font-body);
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+.newsletter #forendorsEmbedContainer button {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 600;
+  background: var(--primary);
+  color: var(--white);
+  border-radius: 4px;
+  width: fit-content !important;
+  max-width: 100%;
+  height: auto;
+  min-height: 50px;
+  margin: 0;
+  padding: 0.85rem 1.25rem;
+  white-space: normal;
+}
+
+.newsletter #forendorsEmbedContainer button:hover {
+  background: #1a2d54;
+}
+
+.newsletter #forendorsEmbedContainer .info {
+  padding: 0;
+  background: transparent;
+}
+
+.newsletter #forendorsEmbedContainer .info,
+.newsletter #forendorsEmbedContainer .iw.he,
+.newsletter #forendorsEmbedContainer .success {
+  border-radius: 4px;
+}
+
+.newsletter #forendorsEmbedContainer p {
+  line-height: 1.6;
 }
 
 .newsletter__text h2 {
@@ -1043,7 +1140,7 @@ img.hero__avatar {
 .contact-minimal__email {
   display: inline-block;
   font-family: var(--font-heading);
-  font-size: 1.3rem;
+  font-size: 15px;
   font-weight: 600;
   color: var(--primary);
   text-decoration: none;

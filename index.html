@@ -3,7 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aneta Kořínková – Blog o práci a vzdělávání</title>
+  <title>Aneta o práci | Abyste se těšili i na pondělí</title>
+  <meta name="description" content="Podcast, čtení a inspirace o práci, kariéře a životě. Pro všechny, kteří chtějí lépe rozumět světu práce." />
+  <link rel="canonical" href="https://anetakorinkova.cz/" />
+  <meta property="og:title" content="Aneta o práci | Abyste se těšili i na pondělí" />
+  <meta property="og:description" content="Podcast, čtení a inspirace o práci, kariéře a životě. Pro všechny, kteří chtějí lépe rozumět světu práce." />
+  <meta property="og:url" content="https://anetakorinkova.cz/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Aneta o práci" />
+  <meta property="og:locale" content="cs_CZ" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Aneta o práci | Abyste se těšili i na pondělí" />
+  <meta name="twitter:description" content="Podcast, čtení a inspirace o práci, kariéře a životě. Pro všechny, kteří chtějí lépe rozumět světu práce." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -124,6 +135,12 @@
       display: inline;
     }
 
+    @media (min-width: 769px) and (max-width: 1023px) {
+      #homepage-episodes .episode {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
     @media (max-width: 768px) {
       html {
         scroll-padding-top: 5rem;
@@ -171,10 +188,9 @@
   <!-- NAVIGATION -->
   <header class="header" id="header">
     <nav class="nav container">
-      <a href="#" class="nav__logo">Aneta Kořínková</a>
+      <a href="#" class="nav__logo">Aneta o práci</a>
       <ul class="nav__list" id="navList">
-        <li><a href="#uvod" class="nav__link">Úvod</a></li>
-        <li><a href="#clanky" class="nav__link">Články</a></li>
+        <li><a href="#clanky" class="nav__link">Čtení</a></li>
         <li><a href="#podcast" class="nav__link">Podcast</a></li>
         <li><a href="#omne" class="nav__link">O mně</a></li>
       </ul>
@@ -293,9 +309,10 @@
       <div class="contact-minimal">
         <span class="section__tag">Kontakt</span>
         <h2 class="section__title">Spojme se</h2>
-        <p class="contact-minimal__text">Máte otázku, hledáte nový směr, chcete spolupracovat nebo si jen popovídat o&nbsp;světě práce? Budu ráda, když se ozvete.</p>
-        <p class="contact-minimal__text contact-minimal__text--secondary">Vedle podcastu, článků a přednášek se občas věnuji i individuálním kariérním konzultacím. Pokud hledáte nový směr nebo chcete probrat svou kariéru, napište mi.</p>
-        <a href="mailto:korinkova.aneta@gmail.com" class="contact-minimal__email">korinkova.aneta@gmail.com</a>
+        <p class="contact-minimal__text">Máte nápad na spolupráci, chcete mě pozvat k rozhovoru, na podcast nebo na akci? Budu ráda, když se ozvete.</p>
+        <p class="contact-minimal__text contact-minimal__text--secondary"><strong>Konzultace</strong><br>
+          Chcete probrat změnu práce, kariérní rozhodnutí nebo se zorientovat v tom, co dál? Můžeme se potkat na individuální konzultaci.</p>
+        <a href="mailto:korinkova.aneta@gmail.com" class="contact-minimal__email">Napište mi →</a>
         <div class="contact-minimal__social">
           <a href="https://www.linkedin.com/in/anetakorinkova/" target="_blank" rel="noopener noreferrer" class="contact-minimal__social-link">LinkedIn</a>
           <span class="contact-minimal__social-sep">·</span>
