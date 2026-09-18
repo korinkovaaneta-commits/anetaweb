@@ -462,12 +462,13 @@ strong {
 }
 
 img.hero__avatar {
-  aspect-ratio: 3/4 !important;
+  aspect-ratio: 1/1 !important;
   border-radius: 0 !important;
   display: block !important;
   width: 100% !important;
   height: auto !important;
   object-fit: cover !important;
+  object-position: center 60% !important;
   animation: scaleIn 0.8s ease-out;
   background: none !important;
   margin: 0 !important;
@@ -499,7 +500,43 @@ img.hero__avatar {
   display: none;
 }
 
+@media (min-width: 769px) {
+  .hero + #podcast {
+    padding-top: 3.5rem;
+  }
+}
+
+/* Stejný vnější rytmus všech navazujících sekcí homepage. */
+#podcast,
+#podcast ~ .section {
+  --home-section-edge: 3.375rem;
+}
+
+#podcast,
+#podcast ~ .section:not(#kontakt) {
+  padding-bottom: var(--home-section-edge);
+}
+
+#podcast ~ .section {
+  padding-top: var(--home-section-edge);
+}
+
+@media (max-width: 1023px) {
+  #podcast,
+  #podcast ~ .section {
+    --home-section-edge: 2.75rem;
+  }
+}
+
 @media (max-width: 768px) {
+  #podcast {
+    --home-section-edge: 2rem;
+  }
+
+  #podcast ~ .section {
+    --home-section-edge: 2rem;
+  }
+
   .hero {
     min-height: auto;
   }
@@ -514,8 +551,9 @@ img.hero__avatar {
 
   .hero__actions { flex-wrap: wrap; }
 
-  .hero__avatar {
-    aspect-ratio: 1;
+  img.hero__avatar {
+    aspect-ratio: 3/4 !important;
+    object-position: center !important;
   }
 }
 
