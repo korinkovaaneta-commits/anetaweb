@@ -2,7 +2,7 @@
 import xml.etree.ElementTree as ET
 from datetime import datetime
 import re
-from html import unescape
+from html import unescape, escape
 import os
 
 # Parse WordPress XML
@@ -119,10 +119,8 @@ for idx, article in enumerate(top_20, 1):
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="article-covers.css?v=20260925-editorial" />
   <style>
-    .article-header {{ background: var(--purple-dark); color: var(--white); padding: 4rem 0; margin-bottom: 3rem; }}
-    .article-header h1 {{ font-family: var(--font-serif); font-size: 2.5rem; line-height: 1.2; margin-bottom: 1rem; }}
-    .article-meta {{ display: flex; gap: 1.5rem; font-size: .9rem; color: rgba(255,255,255,.6); margin-bottom: 1rem; }}
     .article-content {{ max-width: 760px; margin: 0 auto 4rem; line-height: 1.8; color: var(--gray-800); }}
     .article-content h2 {{ font-family: var(--font-serif); font-size: 1.6rem; color: var(--purple-dark); margin: 2rem 0 1rem; }}
     .article-content p {{ margin-bottom: 1.25rem; }}
@@ -150,19 +148,8 @@ for idx, article in enumerate(top_20, 1):
     </nav>
   </header>
 
-  <!-- ARTICLE HEADER -->
-  <section class="article-header">
-    <div class="container">
-      <a href="articles.html" class="back-link">← Zpět na články</a>
-      <h1>{article['title']}</h1>
-      <div class="article-meta">
-        <span>📅 {article['date'].strftime('%d. %B %Y').replace('á','á').replace('ř','ř').replace('ů','ů').replace('ě','ě').replace('č','č').replace('ž','ž').replace('š','š')}</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ARTICLE CONTENT -->
-  <article class="article-content">
+  <!-- Shared header and lead are initialized by article-covers.js. -->
+  <article class="article-content article-content--editorial" data-title="{escape(article['title'], quote=True)}">
     {html_paragraphs}
   </article>
 
@@ -178,6 +165,7 @@ for idx, article in enumerate(top_20, 1):
   </footer>
 
   <script src="script.js"></script>
+  <script src="article-covers.js?v=20260925-editorial"></script>
 </body>
 </html>'''
 
