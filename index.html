@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=20260918-hero-spacing" />
+  <link rel="stylesheet" href="style.css?v=20260925-podcast-cards" />
   <link rel="preload" as="image" type="image/webp"
         href="images/hero-photo-1200.webp"
         imagesrcset="images/hero-photo-720.webp 720w, images/hero-photo-1200.webp 1200w"
@@ -46,12 +46,6 @@
       border: 1px solid #F0F0F0;
       border-top: 4px solid #C0365A;
       border-radius: 4px;
-      transition: all 0.25s ease;
-    }
-
-    .episode:hover {
-      border-color: #1C3F6E;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
 
     .episode__image {
@@ -438,8 +432,8 @@
           episodesHtml += `
             <div class="episode">
               ${imageUrl ? `<div class="episode__image"><img src="${imageUrl}" alt="${title}" loading="lazy" decoding="async"></div>` : ''}
-              <h3 class="episode__title">${title}</h3>
-              <a href="${episodeUrl}" class="episode__link">Poslechnout epizodu →</a>
+              <h3 class="episode__title" id="episode-title-${episodeNumber}">${title}</h3>
+              <a href="${episodeUrl}" class="episode__link" id="episode-link-${episodeNumber}" aria-labelledby="episode-link-${episodeNumber} episode-title-${episodeNumber}">Poslechnout epizodu →</a>
             </div>
           `;
         }

@@ -784,6 +784,35 @@ img.hero__avatar {
 }
 
 
+/* Extend the existing CTA link over its card without nesting links. */
+.episode {
+  position: relative;
+  cursor: pointer;
+}
+
+.episode__link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+}
+
+.episode__link:focus-visible {
+  outline: none;
+}
+
+.episode__link:focus-visible::after {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .episode:hover .episode__title {
+    color: var(--primary);
+  }
+}
+
+
 .episode__image {
   width: 100%;
   margin-bottom: 1.5rem;
