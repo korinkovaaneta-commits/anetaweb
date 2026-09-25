@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=20260925-podcast-cards" />
+  <link rel="stylesheet" href="style.css?v=20260925-podcast-card-links" />
 
   <!-- Cookie consent management -->
   <script src="cookies.js"></script>
@@ -136,7 +136,7 @@
       width: fit-content;
     }
 
-    .episode__link:hover {
+    .episode:hover .episode__link {
       color: var(--accent);
     }
 
@@ -279,12 +279,12 @@
           const episodeUrl = `episode.html?num=${episodeNumber}&slug=${slug}`;
 
           episodesHtml += `
-            <article class="episode">
+            <a href="${episodeUrl}" class="episode" aria-labelledby="episode-link-${episodeNumber} episode-title-${episodeNumber}">
               ${imageUrl ? `<div class="episode__image"><img src="${imageUrl}" alt="${title}" loading="lazy" decoding="async"></div>` : ''}
               <h3 class="episode__title" id="episode-title-${episodeNumber}">${episodeNumber}. ${title}</h3>
               <div class="episode__date">${formattedDate}</div>
-              <a href="${episodeUrl}" class="episode__link" id="episode-link-${episodeNumber}" aria-labelledby="episode-link-${episodeNumber} episode-title-${episodeNumber}">Poslechnout epizodu →</a>
-            </article>
+              <span class="episode__link" id="episode-link-${episodeNumber}">Poslechnout epizodu →</span>
+            </a>
           `;
 
           episodeNumber--;

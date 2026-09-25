@@ -615,9 +615,17 @@ img.hero__avatar {
   border-radius: 8px;
 }
 
-.card__inner:hover {
-  background: rgba(36, 59, 107, 0.04);
-  transform: translateY(-2px);
+.card__inner,
+.featured-article,
+.article-item {
+  cursor: pointer;
+}
+
+.card__inner:focus-visible,
+.featured-article:focus-visible,
+.article-item:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
 }
 
 .card__category {
@@ -653,8 +661,12 @@ img.hero__avatar {
   display: inline-block;
 }
 
-.card__inner:hover .card__link {
-  color: var(--accent);
+@media (hover: hover) and (pointer: fine) {
+  .card__inner:hover .card__link,
+  .featured-article:hover .featured-article__link,
+  .article-item:hover .article-item__link {
+    color: var(--accent);
+  }
 }
 
 @media (max-width: 768px) {
@@ -784,24 +796,13 @@ img.hero__avatar {
 }
 
 
-/* Extend the existing CTA link over its card without nesting links. */
 .episode {
-  position: relative;
   cursor: pointer;
+  color: inherit;
+  text-decoration: none;
 }
 
-.episode__link::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  cursor: pointer;
-}
-
-.episode__link:focus-visible {
-  outline: none;
-}
-
-.episode__link:focus-visible::after {
+.episode:focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: 4px;
 }
@@ -851,7 +852,7 @@ img.hero__avatar {
   width: fit-content;
 }
 
-.episode__link:hover {
+.episode:hover .episode__link {
   color: var(--accent);
 }
 

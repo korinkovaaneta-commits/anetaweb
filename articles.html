@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=20260917-footer" />
+  <link rel="stylesheet" href="style.css?v=20260925-content-links" />
 
   <!-- Cookie consent management -->
   <script src="cookies.js"></script>
@@ -73,6 +73,7 @@
     }
 
     .featured-article {
+      display: block;
       margin-bottom: 4rem;
       padding-bottom: 3rem;
       border-bottom: 1px solid #f0f0f0;
@@ -114,11 +115,6 @@
       align-items: center;
     }
 
-    .featured-article__link:hover {
-      color: var(--accent);
-      transform: translateX(4px);
-    }
-
     .articles-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -129,14 +125,6 @@
       display: flex;
       flex-direction: column;
       transition: all 0.2s ease;
-    }
-
-    .article-item:hover .article-item__title {
-      color: var(--accent);
-    }
-
-    .article-item:hover .article-item__link {
-      transform: translateX(4px);
     }
 
     .article-item__date {
@@ -175,11 +163,6 @@
       transition: all 0.2s ease;
       display: inline-block;
       width: fit-content;
-    }
-
-    .article-item__link:hover {
-      color: var(--accent);
-      transform: translateX(3px);
     }
 
     @media (max-width: 768px) {
@@ -235,91 +218,91 @@
     <div class="container articles-container">
       
       <!-- FEATURED ARTICLE -->
-      <article class="featured-article">
+      <a href="articles_content/article1.html" class="featured-article" aria-labelledby="article-link-1 article-title-1">
         <div class="featured-article__date">16. února 2026</div>
-        <h2 class="featured-article__title">Když firmy čtou CV, ale nevidí člověka</h2>
+        <h2 class="featured-article__title" id="article-title-1">Když firmy čtou CV, ale nevidí člověka</h2>
         <p class="featured-article__excerpt">Představte si, že jste se právě rozhodli, že se pustíte do hledání práce. Co uděláte jako první? Nejspíše si napíšete životopis. Ale máte někdy pocit, že je ten váš třeba úplně bez chyby, pěkně naformátován, a přesto se z něj nic nedělá?</p>
-        <a href="articles_content/article1.html" class="featured-article__link">Přečíst článek →</a>
-      </article>
+        <span class="featured-article__link" id="article-link-1">Přečíst článek →</span>
+      </a>
 
       <!-- ARTICLES GRID -->
       <div class="articles-grid">
-        <article class="article-item">
+        <a href="articles_content/article2.html" class="article-item" aria-labelledby="article-link-2 article-title-2">
           <div class="article-item__date">11. srpna 2025</div>
-          <h3 class="article-item__title">Kalendář školního roku pro pracující rodiče</h3>
+          <h3 class="article-item__title" id="article-title-2">Kalendář školního roku pro pracující rodiče</h3>
           <p class="article-item__excerpt">Konec prázdnin se blíží. Těšíš se, že ti skončí vymýšlení prázdninového programu, příměstské tábory, dovážení, vyzvedávání?</p>
-          <a href="articles_content/article2.html" class="article-item__link">Přečíst článek →</a>
-        </article>
+          <span class="article-item__link" id="article-link-2">Přečíst článek →</span>
+        </a>
 
-        <article class="article-item">
+        <a href="articles_content/article3.html" class="article-item" aria-labelledby="article-link-3 article-title-3">
           <div class="article-item__date">7. května 2025</div>
-          <h3 class="article-item__title">Jak nezískat práci: 25 osvědčených tipů</h3>
+          <h3 class="article-item__title" id="article-title-3">Jak nezískat práci: 25 osvědčených tipů</h3>
           <p class="article-item__excerpt">Nutí vás okolí pracovat, ale vy nechcete? Chcete si užívat sladké nicnedělání, ale přitom nevypadat úplně nápadně?</p>
-          <a href="articles_content/article3.html" class="article-item__link">Přečíst článek →</a>
-        </article>
+          <span class="article-item__link" id="article-link-3">Přečíst článek →</span>
+        </a>
 
-        <article class="article-item">
+        <a href="articles_content/article4.html" class="article-item" aria-labelledby="article-link-4 article-title-4">
           <div class="article-item__date">27. ledna 2025</div>
-          <h3 class="article-item__title">Soft skills budoucnosti: Na čem se vám vyplatí zapracovat?</h3>
+          <h3 class="article-item__title" id="article-title-4">Soft skills budoucnosti: Na čem se vám vyplatí zapracovat?</h3>
           <p class="article-item__excerpt">Máte někdy pocit, že novinek kolem vás přibývá tak rychle, že je nestíháte chytat? Bojíte se, že vám ujede vlak?</p>
-          <a href="articles_content/article4.html" class="article-item__link">Přečíst článek →</a>
-        </article>
+          <span class="article-item__link" id="article-link-4">Přečíst článek →</span>
+        </a>
 
-        <article class="article-item">
+        <a href="articles_content/article5.html" class="article-item" aria-labelledby="article-link-5 article-title-5">
           <div class="article-item__date">12. prosince 2024</div>
-          <h3 class="article-item__title">30 vět které můžete říct na pohovoru i v posteli</h3>
+          <h3 class="article-item__title" id="article-title-5">30 vět které můžete říct na pohovoru i v posteli</h3>
           <p class="article-item__excerpt">Život je barevný a proto se nám může stát, že stejnou větu můžeme použít ve dvou naprosto odlišných situacích.</p>
-          <a href="articles_content/article5.html" class="article-item__link">Přečíst článek →</a>
-        </article>
+          <span class="article-item__link" id="article-link-5">Přečíst článek →</span>
+        </a>
 
-        <article class="article-item">
+        <a href="articles_content/article6.html" class="article-item" aria-labelledby="article-link-6 article-title-6">
           <div class="article-item__date">5. listopadu 2024</div>
-          <h3 class="article-item__title">Jak využívat sociální sítě k profesnímu růstu</h3>
+          <h3 class="article-item__title" id="article-title-6">Jak využívat sociální sítě k profesnímu růstu</h3>
           <p class="article-item__excerpt">Sociální sítě se staly součástí našich každodenních životů. Někdy na nich bezmyšlenkovitě brouzdáme, někdy hledáme.</p>
-          <a href="articles_content/article6.html" class="article-item__link">Přečíst článek →</a>
-        </article>
+          <span class="article-item__link" id="article-link-6">Přečíst článek →</span>
+        </a>
 
-        <article class="article-item">
+        <a href="articles_content/article7.html" class="article-item" aria-labelledby="article-link-7 article-title-7">
           <div class="article-item__date">26. září 2024</div>
-          <h3 class="article-item__title">Jak budovat odolnost: Zvládání neúspěchů a odmítnutí</h3>
+          <h3 class="article-item__title" id="article-title-7">Jak budovat odolnost: Zvládání neúspěchů a odmítnutí</h3>
           <p class="article-item__excerpt">Neúspěch a odmítnutí jsou přirozenou součástí kariéry každého člověka. Jak se s nimi vypořádat konstruktivně?</p>
-          <a href="articles_content/article7.html" class="article-item__link">Přečíst článek →</a>
-        </article>
+          <span class="article-item__link" id="article-link-7">Přečíst článek →</span>
+        </a>
 
-        <article class="article-item">
+        <a href="articles_content/article8.html" class="article-item" aria-labelledby="article-link-8 article-title-8">
           <div class="article-item__date">8. srpna 2024</div>
-          <h3 class="article-item__title">Data z pracovního trhu - červenec 2024</h3>
+          <h3 class="article-item__title" id="article-title-8">Data z pracovního trhu - červenec 2024</h3>
           <p class="article-item__excerpt">Český pracovní trh prochází významnými změnami a čelí různým výzvám. Jaké trendy vidíme v datech?</p>
-          <a href="articles_content/article8.html" class="article-item__link">Přečíst článek →</a>
-        </article>
+          <span class="article-item__link" id="article-link-8">Přečíst článek →</span>
+        </a>
 
-        <article class="article-item">
+        <a href="articles_content/article9.html" class="article-item" aria-labelledby="article-link-9 article-title-9">
           <div class="article-item__date">17. června 2024</div>
-          <h3 class="article-item__title">Prázdninový průvodce pro pracující rodiče</h3>
+          <h3 class="article-item__title" id="article-title-9">Prázdninový průvodce pro pracující rodiče</h3>
           <p class="article-item__excerpt">Prázdniny s dětmi mohou být výzvou. Jak si je naplánovat, aby si všichni odpočinuli a užili si je?</p>
-          <a href="articles_content/article9.html" class="article-item__link">Přečíst článek →</a>
-        </article>
+          <span class="article-item__link" id="article-link-9">Přečíst článek →</span>
+        </a>
 
-        <article class="article-item">
+        <a href="articles_content/article10.html" class="article-item" aria-labelledby="article-link-10 article-title-10">
           <div class="article-item__date">28. března 2024</div>
-          <h3 class="article-item__title">15 překvapujících faktů o pracujících maminkách</h3>
+          <h3 class="article-item__title" id="article-title-10">15 překvapujících faktů o pracujících maminkách</h3>
           <p class="article-item__excerpt">Jsou mezi námi. Vypadají jako ostatní lidé. Někdy je na první pohled nepoznáte, jindy víte hned.</p>
-          <a href="articles_content/article10.html" class="article-item__link">Přečíst článek →</a>
-        </article>
+          <span class="article-item__link" id="article-link-10">Přečíst článek →</span>
+        </a>
 
-        <article class="article-item">
+        <a href="articles_content/article11.html" class="article-item" aria-labelledby="article-link-11 article-title-11">
           <div class="article-item__date">15. února 2024</div>
-          <h3 class="article-item__title">Připravte si svůj Elevator Pitch</h3>
+          <h3 class="article-item__title" id="article-title-11">Připravte si svůj Elevator Pitch</h3>
           <p class="article-item__excerpt">Setkání se člověkem z vysněné firmy je příležitost. Máte jen minutu. Co mu řeknete?</p>
-          <a href="articles_content/article11.html" class="article-item__link">Přečíst článek →</a>
-        </article>
+          <span class="article-item__link" id="article-link-11">Přečíst článek →</span>
+        </a>
 
-        <article class="article-item">
+        <a href="articles_content/article12.html" class="article-item" aria-labelledby="article-link-12 article-title-12">
           <div class="article-item__date">11. prosince 2023</div>
-          <h3 class="article-item__title">Jak si vyjednat práci na zkrácený úvazek</h3>
+          <h3 class="article-item__title" id="article-title-12">Jak si vyjednat práci na zkrácený úvazek</h3>
           <p class="article-item__excerpt">Zkrácený úvazek je zvláštní formou zaměstnání. Jak ji správně vyjednat a co na to zaměstnavatel?</p>
-          <a href="articles_content/article12.html" class="article-item__link">Přečíst článek →</a>
-        </article>
+          <span class="article-item__link" id="article-link-12">Přečíst článek →</span>
+        </a>
       </div>
 
     </div>

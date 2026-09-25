@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=20260925-podcast-cards" />
+  <link rel="stylesheet" href="style.css?v=20260925-content-links" />
   <link rel="preload" as="image" type="image/webp"
         href="images/hero-photo-1200.webp"
         imagesrcset="images/hero-photo-720.webp 720w, images/hero-photo-1200.webp 1200w"
@@ -266,24 +266,24 @@
       </div>
       <div class="cards">
         <article class="card">
-          <a href="articles_content/article1.html" class="card__inner">
-            <h3 class="card__title">Když firmy čtou CV, ale nevidí člověka</h3>
+          <a href="articles_content/article1.html" class="card__inner" aria-labelledby="article-link-1 article-title-1">
+            <h3 class="card__title" id="article-title-1">Když firmy čtou CV, ale nevidí člověka</h3>
             <p class="card__excerpt">Představte si, že jste se právě rozhodli, že se pustíte do hledání práce. Co uděláte jako první?</p>
-            <span class="card__link">Přečíst článek →</span>
+            <span class="card__link" id="article-link-1">Přečíst článek →</span>
           </a>
         </article>
         <article class="card">
-          <a href="articles_content/article2.html" class="card__inner">
-            <h3 class="card__title">Kalendář školního roku pro pracující rodiče</h3>
+          <a href="articles_content/article2.html" class="card__inner" aria-labelledby="article-link-2 article-title-2">
+            <h3 class="card__title" id="article-title-2">Kalendář školního roku pro pracující rodiče</h3>
             <p class="card__excerpt">Konec prázdnin se blíží. Těšíš se, že ti skončí vymýšlení prázdninového programu, příměstské tábory, dovážení, vyzvedávání a každý den jinak?</p>
-            <span class="card__link">Přečíst článek →</span>
+            <span class="card__link" id="article-link-2">Přečíst článek →</span>
           </a>
         </article>
         <article class="card">
-          <a href="articles_content/article3.html" class="card__inner">
-            <h3 class="card__title">Jak nezískat práci: 25 osvědčených tipů</h3>
+          <a href="articles_content/article3.html" class="card__inner" aria-labelledby="article-link-3 article-title-3">
+            <h3 class="card__title" id="article-title-3">Jak nezískat práci: 25 osvědčených tipů</h3>
             <p class="card__excerpt">Nutí vás okolí pracovat, ale vy nechcete? Chcete si užívat sladké nicnedělání, ale přitom nevypadat úplně nápadně?</p>
-            <span class="card__link">Přečíst článek →</span>
+            <span class="card__link" id="article-link-3">Přečíst článek →</span>
           </a>
         </article>
       </div>
@@ -430,11 +430,11 @@
           const episodeUrl = `episode.html?num=${episodeNumber}&slug=${slug}`;
 
           episodesHtml += `
-            <div class="episode">
+            <a href="${episodeUrl}" class="episode" aria-labelledby="episode-link-${episodeNumber} episode-title-${episodeNumber}">
               ${imageUrl ? `<div class="episode__image"><img src="${imageUrl}" alt="${title}" loading="lazy" decoding="async"></div>` : ''}
               <h3 class="episode__title" id="episode-title-${episodeNumber}">${title}</h3>
-              <a href="${episodeUrl}" class="episode__link" id="episode-link-${episodeNumber}" aria-labelledby="episode-link-${episodeNumber} episode-title-${episodeNumber}">Poslechnout epizodu →</a>
-            </div>
+              <span class="episode__link" id="episode-link-${episodeNumber}">Poslechnout epizodu →</span>
+            </a>
           `;
         }
 
