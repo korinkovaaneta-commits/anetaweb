@@ -102,3 +102,26 @@
     font-size: 17px;
   }
 }
+
+/* Text links in article prose: visible without relying on color alone. */
+.article-content--editorial a[href] {
+  color: var(--primary);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  text-decoration-skip-ink: auto;
+}
+
+.article-content--editorial a[href] strong {
+  color: inherit;
+}
+
+.article-content--editorial a[href]:hover,
+.article-content--editorial a[href]:focus-visible {
+  color: var(--accent);
+}
+
+.article-content--editorial a[href]:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
